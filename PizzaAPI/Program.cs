@@ -24,15 +24,26 @@ internal class Program
         }
 
         app.UseHttpsRedirection();
+
+        app.UseDefaultFiles();
+
         app.UseStaticFiles();
 
         app.UseRouting();
 
         app.UseAuthorization();
 
-        app.MapControllerRoute(
-            name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}");
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+
+            //endpoints.MapFallbackToFile("index.html");
+        });
+        //app.MapControllerRoute(
+        //    name: "default",
+        //    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
         app.Run();
 

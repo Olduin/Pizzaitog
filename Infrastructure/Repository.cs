@@ -38,7 +38,7 @@ namespace Infrastructure
         public List<PizzaModel> PizzaGetAll()
         {
             var pizzas = _pizzaContext.Pizzas.ToList();
-            _logger.LogInformation("Выполнен запрос на получение всех пицц. Количество: {Count}", pizzas.Count());
+           // _logger.LogInformation("Выполнен запрос на получение всех пицц. Количество: {Count}", pizzas.Count());
             return pizzas;
         }
 
@@ -84,7 +84,7 @@ namespace Infrastructure
 
         public void Dispose()
         {
-            _logger.LogInformation("Repository disposed");
+            //_logger.LogInformation("Repository disposed");
         }
     }
 }

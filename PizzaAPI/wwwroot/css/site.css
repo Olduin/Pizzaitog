@@ -1,18 +1,261 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.col {
+    width: 60px;
+}
+
+.my-flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex-card {
+    border: 2px solid;
+    border-color: white;
+    width: 30%;
+    height: 40%;
+    padding: 5px;
+    background-color: white;
+    border-radius: 5%;
+}
+
+    .flex-card:hover {
+        border-color: #4CAF50;
+    }
+
+.card-img {
+    border-radius: 10%;
+    width: 100%;
+    height: 100%;
+}
+
+.card-name {
+    font-family: Calibri;
+    font-size: 23px;
+    font-weight: bold;
+    color: grey;
+    text-decoration: none;
+}
+
+.card-ingredients {
+    font-family: Calibri;
+    font-size: 16px;
+    height: 100px;
+}
+
+.card-footer {
+    background-color: white;
+    border-radius: 20%;
+    margin-block-end: 10px;
+    justify-content: center;
+}
+
+.card-price {
+    font-size: 25px;
+    font-weight: bold;
+    color: dimgray;
+    display: inline-block;
+    font-family:Calibri;
+}
+
+.card-weight {
+    display: inline-block;
+    font-family: Calibri;
+}
+
+.button-link {
+    border: 2px solid;
+    display: block;
+    padding: 10px 20px;
+    background-color: #80c142;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+    .button-link:hover {
+        background-color: white;
+        border-color: #80c142;
+        color: #80c142;
+    }
+
+.button-link-Edit {
+    border: 2px solid;
+    display: block;
+    padding: 10px 20px;
+    background-color: #80c142;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+    .button-link-Edit:hover {
+        background-color: white;
+        border-color: #80c142;
+        color: #80c142;
+    }
+
+.button-link-Delete {
+    border: 2px solid;
+    display: block;
+    padding: 10px 20px;
+    background-color: darkred;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+    .button-link-Delete:hover {
+        border: 2px solid;
+        background-color: white;
+        border-color: darkred;
+        color: darkred;
+    }
+
+input:invalid {
+    border-color: red;
+}
+
+input:valid {
+    border-color: green;
+}
+
+.pizza-form {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: #007bff;
+    }
+
+.text-danger {
+    color: red;
+    font-size: 0.9em;
+}
+
+.btn-submit {
+    border: 2px solid;
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #80c142;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+    .btn-submit:hover {
+        border: 2px solid;
+        background-color: white;
+        border-color: #80c142;
+        color: #80c142;
+    }
+
+.pizza-details-card {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+    text-align: center;
+    color: #000;
+}
+
+.pizza-image {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.pizza-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.pizza-ingredients {
+    font-size: 16px;
+    color: #000;
+    margin-bottom: 25px;
+}
+
+.pizza-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #000;
+}
+
+.pizza-price {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.pizza-weight {
+    font-style: italic;
+}
+
+.pizza-button {
+    display: inline-block;
 }

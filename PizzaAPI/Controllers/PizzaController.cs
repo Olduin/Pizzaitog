@@ -11,7 +11,7 @@ namespace PizzaSales.PizzaAPI.Controllers
     public class PizzaController : ControllerBase
     {
         private readonly IRepository<PizzaModel> _repository;
-
+       
         public PizzaController(IRepository<PizzaModel> repository)
         {
             _repository = repository;
@@ -22,6 +22,13 @@ namespace PizzaSales.PizzaAPI.Controllers
         {
             return new JsonResult(_repository.PizzaGetAll());
         }
+
+        ///Get api/pizzas
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<PizzaModel>>> Get()
+        //{
+        //    return _repository.PizzaGetAll();
+        //}
 
     }
 }
