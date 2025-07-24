@@ -1,0 +1,12 @@
+Domain/bin/
+Domain/obj/
+Infrastructure/bin/
+Infrastructure/obj/
+PizzaAPI/bin/
+PizzaAPI/obj/
+PizzaAPI/wwwroot/lib/bootstrap/
+PizzaAPI/wwwroot/lib/jquery/
+PizzaAPI/wwwroot/lib/jquery-validation/
+PizzaAPI/wwwroot/lib/jquery-validation-unobtrusive/
+PizzaAPI/.vs/PizzaAPI/CopilotIndices/
+PizzaAPI/.vs/PizzaAPI/FileContentIndex/
