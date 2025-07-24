@@ -12,7 +12,7 @@
     </div>
 
     <div class="my-flex-container"></div>
-
+    <div class=""></div>
 </body>
 </html>
 
@@ -39,40 +39,71 @@
     //        });
     //    }
     //} 
-        function generatePizzaCards(pizzas) {
-            const container = $(".my-flex-container");
-            container.empty();
+    function generatePizzaCards(pizzas) {
+        const container = $(".my-flex-container");
+        container.empty();
 
-            pizzas.forEach(pizza => {
-                const cardHtml = `
-                    <div class="flex-card">
-                        <img class="card-img" data-id="${pizza.id}" src="${pizza.image}">
-                        <a class="card-name" href="Details/${pizza.id}" >${pizza.name}</a>
-                        <div class="card-ingredients">${pizza.ingredients}</div>
-                        <div class="card-footer">
-                            <div class="card-price">${pizza.price} &#8381;</div>
-                            <div class="card-weight">${pizza.weight} гр.</div>
-                            <a href="#" class="button-link">В корзину</a>
-                        </div>
+        pizzas.forEach(pizza => {
+            const cardHtml = `
+                <div class="flex-card">
+                    <img class="card-img" data-id="${pizza.id}" src="${pizza.image}">
+                    <a class="card-name" href="Details/${pizza.id}" >${pizza.name}</a>
+                    <div class="card-ingredients">${pizza.ingredients}</div>
+                    <div class="card-footer">
+                        <div class="card-price">${pizza.price} &#8381;</div>
+                        <div class="card-weight">${pizza.weight} гр.</div>
+                        <a href="#" class="button-link">В корзину</a>
                     </div>
-                `;
-                container.append(cardHtml);
-            });
+                </div>
+            `;
+            container.append(cardHtml);
+        });       
 
-        };        
+    };        
 
-        $.ajax({
-            url: "/api/pizza",
-            type: "GET",
-            dataType: "json",
-            success: function (data) {
-                generatePizzaCards(data);
+    $('.card-img').on('click', function () {
+        var pizzaId = $(this).data('id');
+        if (pizzaId) {
+            const cardHtml = `
+            <div class="flex-card">
+                <img class="card-img" data-id="${pizza.id}" src="${pizza.image}">
+                <a class="card-name" href="Details/${pizza.id}" >${pizza.name}</a>
+                <div class="card-ingredients">${pizza.ingredients}</div>
+                <div class="card-footer">
+                    <div class="card-price">${pizza.price} &#8381;</div>
+                    <div class="card-weight">${pizza.weight} гр.</div>
+                    <a href="#" class="button-link">В корзину</a>
+                </div>
+            </div>
 
-            },
-            error: function () {
-                console.error("Ошибка при получении списка пицц");
-            }
-        });
+            <div class="pizza-details-card">
+                <img class="card-img" src="${pizzaId.Image}">
+                <h4 class="pizza-title">${pizzaId.Name}</h4>
+                <div class="pizza-ingredient"> ${pizzaId.Ingredients} </div>
+                <div class="card-footer">
+                    <div class="card-price">${pizzaId.Price} &#8381;</div>
+                    <div class="card-weight">${pizzaId.Weight} гр.</div>
+                    <a href="#" class="button-link">В корзину</a>
+                </div>
+            </div>
+            `;
+            var url = 'Details/' + encodeURIComponent(pizzaId);
+
+            location.href = url;
+    }
+
+    $.ajax({
+        url: "/api/pizza",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            generatePizzaCards(data);
+
+        },
+        error: function () {
+            console.error("Ошибка при получении списка пицц");
+        }
+    });
 
 </script>
 }

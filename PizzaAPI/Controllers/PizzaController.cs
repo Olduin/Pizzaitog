@@ -12,23 +12,32 @@ namespace PizzaSales.PizzaAPI.Controllers
     {
         private readonly IRepository<PizzaModel> _repository;
        
-        public PizzaController(IRepository<PizzaModel> repository)
+        public PizzaController(ILogger<PizzaController> logger , IRepository<PizzaModel> repository)
         {
+            //_logger = logger;
             _repository = repository;
         }
 
         [HttpGet]
         public JsonResult Get()
         {
-            return new JsonResult(_repository.PizzaGetAll());
+            var pizzas = _repository.PizzaGetAll();
+            return new JsonResult(pizzas);
         }
 
-        ///Get api/pizzas
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<PizzaModel>>> Get()
-        //{
-        //    return _repository.PizzaGetAll();
-        //}
+        [HttpGet]
+        public JsonResult GetPizzaById(int id)
+        {            
+            var pizza = _repository.PizzaGetById(id);         
+            if (pizza == null)
+            {
+                //return NotFound();
+            }
+
+            return new JsonResult(pizza);               
+        }
+
+
 
     }
 }
