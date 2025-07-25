@@ -1,0 +1,332 @@
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+An unhandled exception has occurred while executing the request.
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:27:09
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+An unhandled exception has occurred while executing the request.
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:27:36
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:28:55
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:29:30
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:33:06
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:34:01
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:34:05
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:34:20
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:34:54
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:35:15
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:35:35
+An unhandled exception has occurred while executing the request.
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+An unhandled exception has occurred while executing the request.
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:35:48
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:35:55
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+An unhandled exception has occurred while executing the request.
+An unhandled exception has occurred while executing the request.
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+An unhandled exception has occurred while executing the request.
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+An unhandled exception has occurred while executing the request.
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:40:40
+An unhandled exception has occurred while executing the request.
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:48:34
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:50:00
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:15:05
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:15:21
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /undefined Time:10:38:10
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:38:17
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:38:35
+Path: /undefined Time:10:38:40
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:42:01
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:44:12
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:49:32
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /undefined Time:10:54:06
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:54:08
+Path: /undefined Time:10:54:16
+Path: /undefined Time:10:54:16
+Path: /undefined Time:10:54:17
+Path: /undefined Time:10:54:17
+Path: /undefined Time:10:55:00
+Path: /Details/11 Time:10:55:02
+Path: /Details/11 Time:10:55:06
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /undefined Time:10:56:49
+Path: /undefined Time:10:56:52
+Path: /undefined Time:10:57:03
+Path: /undefined Time:10:57:03
+Path: /undefined Time:10:57:03
+Path: /undefined Time:10:57:03
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:57:09
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /undefined Time:10:58:50
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /undefined Time:11:00:10
+Path: /undefined Time:11:00:20
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /undefined Time:11:02:22
+Path: /undefined Time:11:02:24
+Path: /undefined Time:11:02:24
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /undefined Time:11:02:58
+Path: /undefined Time:11:03:00
+Path: /undefined Time:11:03:00
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /undefined Time:11:03:17
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /undefined Time:11:06:33
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:06:40
+Path: /undefined Time:11:06:44
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:07:09
+Path: /undefined Time:11:07:24
+Path: /undefined Time:11:07:49
+Path: /undefined Time:11:08:49
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:25:03
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:26:05
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:26:10
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (61ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (63ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (0ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (74ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (91ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошена пицца по ID: 11
+Выполнен запрос на получение пиццы по ID: 11
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (45ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Пицца найдена: Пицца программиста, Цена: 1024
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (56ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed

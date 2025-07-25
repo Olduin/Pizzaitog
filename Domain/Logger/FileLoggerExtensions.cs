@@ -9,10 +9,10 @@ namespace Domain.Logger
 {
     public static class FileLoggerExtensions
     {
-        public static ILoggerFactory AddFile(this ILoggerFactory factory, string filePath)
+        public static ILoggingBuilder AddFile(this ILoggingBuilder builder, string filePath)
         {
-            factory.AddProvider(new FileLoggerProvider(filePath));
-            return factory;
+            builder.AddProvider(new FileLoggerProvider(filePath));
+            return builder;
         }
     }
 }

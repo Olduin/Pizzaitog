@@ -14,31 +14,18 @@ namespace Infrastructure
     {
         private readonly ILogger<Repository> _logger;
 
-        private PizzaContext _pizzaContext;
+        private readonly PizzaContext _pizzaContext;            
 
-        //private readonly IDbContextFactory<PizzaContext> _pizzaContext;       
-
-        //public Repository(ILogger<Repository> logger, IDbContextFactory<PizzaContext> dbContextFactory)
-        //{
-        //    _pizzaContext = dbContextFactory;
-        //    // _logger = logger;
-        //}
-
-        public Repository()
+        public Repository(ILogger<Repository> logger, PizzaContext context)
         {
-            _pizzaContext = new PizzaContext();
-            // _logger = logger;
-        }
-        public Repository(ILogger<Repository> logger)
-        {
-            _pizzaContext = new PizzaContext();
-           // _logger = logger;
-        }
+            _pizzaContext = context;
+             _logger = logger;
+        }    
 
         public List<PizzaModel> PizzaGetAll()
         {
             var pizzas = _pizzaContext.Pizzas.ToList();
-           // _logger.LogInformation("Выполнен запрос на получение всех пицц. Количество: {Count}", pizzas.Count());
+            _logger.LogInformation("Выполнен запрос на получение всех пицц. Количество: {Count}", pizzas.Count());
             return pizzas;
         }
 
@@ -84,7 +71,7 @@ namespace Infrastructure
 
         public void Dispose()
         {
-            //_logger.LogInformation("Repository disposed");
+            _logger.LogInformation("Repository disposed");
         }
     }
 }

@@ -1,21 +1,30 @@
 using Infrastructure;
 using PizzaSales.Domain;
 using PizzaSales.Infrastructure;
+using Microsoft.Extensions.Logging;
+using PizzaSales.Domain.Logger;
+using Domain.Logger;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 internal class Program
 {
-    private static void Main(string[] args)
+    private static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        
         // Add services to the container.
-        builder.Services.AddControllersWithViews();
-        //builder.Services.AddScoped<IPizzaContext, PizzaContext>();
+        builder.Services.AddControllersWithViews();       
+        builder.Services.AddDbContext<PizzaContext> (options => options.UseSqlServer());
         builder.Services.AddScoped<IRepository<PizzaModel>, Repository>();
+
+        builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));        
 
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
+        if (!app.Environment.IsDevelopment())
         if (!app.Environment.IsDevelopment())
         {
             app.UseExceptionHandler("/Home/Error");
@@ -43,9 +52,15 @@ internal class Program
         //    name: "default",
         //    pattern: "{controller=Home}/{action=Index}/{id?}");
 
+        app.Run (async (context) =>
+        {
+            app.Logger.LogInformation($"Path: {context.Request.Path} Time:{DateTime.Now.ToLongTimeString()}");
+            await context.Response.WriteAsync("Hello");
 
+        });
 
         app.Run();
 
+       
     }
 }
