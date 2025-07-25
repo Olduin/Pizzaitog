@@ -14,26 +14,13 @@ namespace Infrastructure
     {
         private readonly ILogger<Repository> _logger;
 
-        private PizzaContext _pizzaContext;
+        private readonly PizzaContext _pizzaContext;            
 
-        //private readonly IDbContextFactory<PizzaContext> _pizzaContext;       
-
-        //public Repository(ILogger<Repository> logger, IDbContextFactory<PizzaContext> dbContextFactory)
-        //{
-        //    _pizzaContext = dbContextFactory;
-        //    // _logger = logger;
-        //}
-
-        public Repository()
+        public Repository(ILogger<Repository> logger, PizzaContext context)
         {
-            _pizzaContext = new PizzaContext();
-            // _logger = logger;
-        }
-        public Repository(ILogger<Repository> logger)
-        {
-            _pizzaContext = new PizzaContext();
-           // _logger = logger;
-        }
+            _pizzaContext = context;
+             _logger = logger;
+        }    
 
         public List<PizzaModel> PizzaGetAll()
         {

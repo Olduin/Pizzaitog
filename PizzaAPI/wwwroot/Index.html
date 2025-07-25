@@ -3,8 +3,121 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link rel="stylesheet" href="css/site.css" asp-append-version="true" />
 </head>
 <body>
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
 
+    <div class="Page-container"></div>
+    <div class="my-flex-container"></div>
+  
 </body>
 </html>
+
+@section scripts
+{
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>           
+    function generatePizzaCards(pizzas) {
+        const container = $(".Page-container");
+        const containerFlex = $(".my-flex-container");
+        container.empty();
+
+        pizzas.forEach(pizza => {
+            const cardHtml = `  
+            
+                <div class="flex-card">
+                    <img class="card-img" data-id="${pizza.id}" src="${pizza.image}">
+                    <a class="card-name" href="Details/${pizza.id}" >${pizza.name}</a>
+                    <div class="card-ingredients">${pizza.ingredients}</div>
+                    <div class="card-footer">
+                        <div class="card-price">${pizza.price} &#8381;</div>
+                        <div class="card-weight">${pizza.weight} гр.</div>
+                        <a href="#" class="button-link">В корзину</a>
+                    </div>
+                </div>
+            `;
+            containerFlex.append(cardHtml);
+            container.append(containerFlex);
+        });       
+
+        $('.card-img').on('click', function () {
+            var pizzaId = $(this).data('id');
+            $.ajax({
+                url: "/api/pizza/" + pizzaId,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    generatePizzaDetail(data);
+
+                },
+                error: function () {
+                    console.error("Ошибка при получении одной пиццы");
+                }
+            })
+        });
+    };        
+
+    function generatePizzaDetail(pizza) {
+        const container = $(".Page-container");
+        container.empty();
+
+        const cardHtml = `   
+            <div class="pizza-details-card">
+                <img class="card-img" src="${pizza.image}">
+                <h4 class="pizza-title">${pizza.name}</h4>
+                <div class="pizza-ingredient"> ${pizza.ingredients} </div>
+                <div class="card-footer">
+                    <div class="card-price">${pizza.price} &#8381;</div>
+                    <div class="card-weight">${pizza.weight} гр.</div>
+                    <a href="#" class="button-link">В корзину</a>
+                </div>
+            </div>
+        `;
+    
+        container.append(cardHtml);
+
+    };     
+
+    
+
+    //$('.card-img').on('click', function () {
+    //    var pizzaId = $(this).data('id');
+    //    if (pizzaId) {
+    //        const cardHtml = `       
+
+    //    <div class="pizza-details-card">
+    //        <img class="card-img" src="${pizzaId.Image}">
+    //        <h4 class="pizza-title">${pizzaId.Name}</h4>
+    //        <div class="pizza-ingredient"> ${pizzaId.Ingredients} </div>
+    //        <div class="card-footer">
+    //            <div class="card-price">${pizzaId.Price} &#8381;</div>
+    //            <div class="card-weight">${pizzaId.Weight} гр.</div>
+    //            <a href="#" class="button-link">В корзину</a>
+    //        </div>
+    //    </div>
+    //    `;
+    //        var url = 'Details/' + encodeURIComponent(pizzaId);
+
+    //        location.href = url;
+    //    }
+
+    $.ajax({
+        url: "/api/pizza",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            generatePizzaCards(data);
+
+        },
+        error: function () {
+            console.error("Ошибка при получении списка пицц");
+        }
+    });
+
+</script>
+}
