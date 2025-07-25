@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PizzaSales.Infrastructure;
-using PizzaSales.Domain;
+using Domain;
 
 
 namespace PizzaSales.PizzaAPI.Controllers
@@ -18,7 +18,7 @@ namespace PizzaSales.PizzaAPI.Controllers
             _logger = logger;
             _repository = repository;
         }
-
+     
         [HttpGet]
         public IActionResult PizzaGetAll()
         {
@@ -40,6 +40,7 @@ namespace PizzaSales.PizzaAPI.Controllers
             }            
         }
 
+        // get api/pizzas/5
         [HttpGet("{id}")]
         public IActionResult GetPizzaById(int id)
         {
@@ -61,8 +62,50 @@ namespace PizzaSales.PizzaAPI.Controllers
                 return Problem(detail: "Произошла ошибка на сервере");
             }
         }
+                
+        [HttpPost]
+        public IActionResult PizzaCreate(PizzaModel pizza)
+        {      
+            if (pizza == null)
+            {
+                //Добавление
+                var _newItem = new PizzaModel(pizza);
+                _repository.PizzaAdd(_newItem);
+            }
+            _repository.Save();
+            return Ok(pizza);
+            //return RedirectToAction("Index");
 
-        [HttpPost("{id}")]
+            return CreatedAtAction(nameof(pizza), new { id = pizza.Id }, pizza);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult PizzaUpdate(PizzaModel pizza) 
+        {
+            if (pizza.Id.HasValue)
+            {
+                //Обновление
+                var _item = _repository.PizzaGetById(pizza.Id.Value);
+                if (_item != null)
+                {
+                    _item.Name = pizza.Name;
+                    _item.Ingredients = pizza.Ingredients;
+                    _item.Image = pizza.Image;
+                    _item.Weight = pizza.Weight;
+                    _item.Price = pizza.Price;
+
+                    //_repository.PizzaUpdate(_item);
+                    _repository.Save();
+                   
+                }
+
+            }
+            return Ok(pizza);
+
+        }
+
+        // DELETE api/pizzas/5
+        [HttpDelete("{id}")]
         public ActionResult PizzaDelete(int? id)
         {
             if (id != null)

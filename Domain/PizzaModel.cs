@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PizzaSales.Domain
+namespace Domain
 {
     public class PizzaModel
     {

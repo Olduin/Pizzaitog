@@ -1,11 +1,12 @@
 using Infrastructure;
-using PizzaSales.Domain;
 using PizzaSales.Infrastructure;
 using Microsoft.Extensions.Logging;
 using PizzaSales.Domain.Logger;
 using Domain.Logger;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using PizzaSales.Domain;
+using Domain;
 
 internal class Program
 {
