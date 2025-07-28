@@ -38,8 +38,8 @@
                         <div class="card-price">${pizza.price} &#8381;</div>
                         <div class="card-weight">${pizza.weight} гр.</div>
                         <a href="#" class="button-link">В корзину</a>
-                        <a data-id="@item.Id" class="button-link-Edit">Изменить</a>
-                        <a data-id="@item.Id" class="button-link-Delete">Удалить</a>
+                        <a data-id="${pizza.id}" class="button-link-Edit">Изменить</a>
+                        <a data-id="${pizza.id}" class="button-link-Delete">Удалить</a>
                     </div>
                 </div>
             `;
@@ -50,7 +50,7 @@
         container.append(containerFlex);
 
         $('.card-img').on('click', function () {
-            var pizzaId = $(this).data('id');
+            var pizzaId =($(this).data('id'));
             $.ajax({
                 url: uri + pizzaId,
                 type: "GET",
@@ -69,6 +69,42 @@
             generatePizzaCreate();
         });
 
+        //$('.button-link-Delete').on('click', function () {
+        //    deletePizza();
+        //})
+
+        $('.button-link-Delete').on('click', function (e) {
+           var pizzaId = $(this).data('id');
+            let IsDelete = confirm("Удалить элемент?"); 
+            if (IsDelete == true) {
+                $.ajax({
+                    url: uri + pizzaId,
+                    type: "DELETE",
+                    data: { id: pizzaId },
+                    success: function (data) {
+                       window.location.reload();
+                    },
+                    
+                })
+            }
+        })
+
+        $('.button-link-Edit').on('click', function (e) {
+            var pizzaId = $(this).data('id');
+            EditPizza(id);
+
+            if (IsDelete == true) {
+                $.ajax({
+                    url: uri + pizzaId,
+                    type: "PUT",
+                    data: { id: pizzaId },
+                    success: function (data) {
+                        window.location.reload();
+                    },
+                })
+            }
+        })
+
         $('.button-link-Edit').on('click', function () {
             var pizzaId = $(this).data('id');
             $.ajax({
@@ -83,7 +119,6 @@
                 }
             })
         });
-
     };
 
     function generatePizzaCreate() {
@@ -177,6 +212,8 @@
 
         location.reload();      
     }
+
+   
 
     //function ShowPizzaEdit(pizza) {
 

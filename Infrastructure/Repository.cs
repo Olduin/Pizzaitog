@@ -61,7 +61,9 @@ namespace Infrastructure
             if (pizza != null)
             {
                 _pizzaContext.Pizzas.Remove(pizza);
+                //Save();
             }
+
         }
 
         public void Save()

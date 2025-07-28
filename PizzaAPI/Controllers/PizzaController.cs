@@ -66,11 +66,7 @@ namespace PizzaSales.PizzaAPI.Controllers
                 
         [HttpPost]
         public async Task<ActionResult<PizzaModel>> PizzaCreate(PizzaModel pizza)
-        {
-            //if (pizza == null)
-            //{
-            //    return BadRequest();
-            //}       
+        {                
             _repository.PizzaAdd(pizza);
             _repository.Save();
             return Ok(pizza);
@@ -113,15 +109,15 @@ namespace PizzaSales.PizzaAPI.Controllers
 
         // DELETE api/pizzas/5
         [HttpDelete("{id}")]
-        public ActionResult PizzaDelete(int? id)
+        public async  Task<ActionResult> PizzaDelete(int? id)
         {
             if (id != null)
             {
                 _repository.PizzaDelete(id);
                 _repository.Save();
-                return RedirectToAction("Index");
+                return NotFound();
             }
-            return NotFound();
+            return NoContent();
 
         }
 
