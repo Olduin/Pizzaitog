@@ -3,7 +3,10 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/site.css" asp-append-version="true" />
+
 </head>
 <body>
     <div class="text-center">
@@ -13,12 +16,56 @@
 
     <div class="Page-container"></div>
     <div class="my-flex-container"></div>
-    
+
+    <!-- Модальное окно Bootstrap -->
+    <div class="modal fade" id="pizzaModal" tabindex="-1" aria-labelledby="pizzaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pizzaModalLabel">Добавить пиццу</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <form id="pizza-form">
+                    <div class="modal-body">
+                        <input type="hidden" id="pizza-id">
+                        <div class="mb-3">
+                            <label for="pizza-name" class="form-label">Название</label>
+                            <input type="text" class="form-control" id="pizza-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="pizza-image" class="form-label">Изображение (URL)</label>
+                            <input type="text" class="form-control" id="pizza-image">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pizza-ingredients" class="form-label">Ингредиенты</label>
+                            <input type="text" class="form-control" id="pizza-ingredients">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pizza-price" class="form-label">Цена</label>
+                            <input type="number" class="form-control" id="pizza-price" step="0.01">
+                        </div>
+                        <div class="mb-3">
+                            <label for="pizza-weight" class="form-label">Вес (грамм)</label>
+                            <input type="number" class="form-control" id="pizza-weight">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                        <button type="submit" class="btn btn-success">Сохранить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay" style="display:none; position:fixed; top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);"></div>
 
 </body>
 </html>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 <script>
     const uri = "/api/pizza/";
@@ -50,7 +97,7 @@
         container.append(containerFlex);
 
         $('.card-img').on('click', function () {
-            var pizzaId =($(this).data('id'));
+            var pizzaId = ($(this).data('id'));
             $.ajax({
                 url: uri + pizzaId,
                 type: "GET",
@@ -66,25 +113,42 @@
         });
 
         $('.button-link-Create').on('click', function () {
-            generatePizzaCreate();
+            openModal();
         });
+
+        $('.button-link-Edit').on('click', function () {
+            const pizzaId = $(this).data('id');
+            $.ajax({
+                url: uri + pizzaId,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    openModal(data);
+                },
+                error: function () {
+                    alert("Ошибка при загрузке пиццы");
+                }
+            });
+        });
+
+
 
         //$('.button-link-Delete').on('click', function () {
         //    deletePizza();
         //})
 
         $('.button-link-Delete').on('click', function (e) {
-           var pizzaId = $(this).data('id');
-            let IsDelete = confirm("Удалить элемент?"); 
+            var pizzaId = $(this).data('id');
+            let IsDelete = confirm("Удалить элемент?");
             if (IsDelete == true) {
                 $.ajax({
                     url: uri + pizzaId,
                     type: "DELETE",
                     data: { id: pizzaId },
                     success: function (data) {
-                       window.location.reload();
+                        window.location.reload();
                     },
-                    
+
                 })
             }
         })
@@ -121,81 +185,6 @@
         });
     };
 
-    function generatePizzaCreate() {
-        const container = $(".Page-container");
-        container.empty();
-
-        const createFormHtml = `
-            <div>
-                <form action="javascript:void(0);" method="POST" class="pizza-form" onsubmit="addPizza()">
-                    <div class="form-group">
-                        <label>Название</label>
-                        <input type="text" id="add-pizza-name" class="form-control" />
-                    </div>
-                    <div class="form-group">
-                        <label>Изображение</label>
-                        <input type="text" id="add-pizza-image" class="form-control" />
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Ингредиенты</label>
-                        <input type="text" id="add-pizza-ingredients" class="form-control" />
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Цена</label>
-                        <input type="text" id="add-pizza-price" class="form-control" />
-                    </div>
-            
-                    <div class="form-group">
-                        <label>Вес</label>
-                        <input type="text" id="add-pizza-weight" class="form-control" />
-                    </div>
-            
-                    <input type="submit" value="Соранить" class="btn-submit"></input>
-                </form>
-            </div>
-            `;
-        container.append(createFormHtml);
-    }
-
-    function generatePizzaEdit() {
-        const container = $(".Page-container");
-        container.empty();
-
-        const createFormHtml = `
-        <div>
-            <form action="javascript:void(0);" method="PUT" class="pizza-form" onsubmit="EditPizza()">
-                <div class="form-group">
-                    <label>Название</label>
-                    <input type="text" id="edit-pizza-name" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label>Изображение</label>
-                    <input type="text" id="edit-pizza-image" class="form-control" />
-                </div>
-        
-                <div class="form-group">
-                    <label>Ингредиенты</label>
-                    <input type="text" id="edit-pizza-ingredients" class="form-control" />
-                </div>
-        
-                <div class="form-group">
-                    <label>Цена</label>
-                    <input type="text" id="edit-pizza-price" class="form-control" />
-                </div>
-        
-                <div class="form-group">
-                    <label>Вес</label>
-                    <input type="text" id="edit-pizza-weight" class="form-control" />
-                </div>
-        
-                <input type="submit" value="Соранить" class="btn-submit"></input>
-            </form>
-        </div>
-        `;
-        container.append(createFormHtml);
-    }
 
     function generatePizzaDetail(pizza) {
         const container = $(".Page-container");
@@ -203,6 +192,9 @@
 
         const cardHtml = `
             <div class="pizza-details-card">
+            <button id="back-to-list" class="btn btn-outline-primary">
+    &#8592; Назад
+</button>
                 <img class="card-img" src="${pizza.image}">
                 <h4 class="pizza-title">${pizza.name}</h4>
                 <div class="pizza-ingredient"> ${pizza.ingredients} </div>
@@ -215,61 +207,90 @@
         `;
 
         container.append(cardHtml);
+
+        $('#back-to-list').on('click', function () {
+            $.ajax({
+                url: "/api/pizza",
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    generatePizzaCards(data);
+                },
+                error: function () {
+                    console.error("Ошибка при получении списка пицц");
+                }
+            });
+        });
     };
 
-    async function addPizza() {
-        const $form = $(this).closest('.pizza-form');
 
-        var myPizza = {
-            Name: $('#add-pizza-name').val(),
-            Image : $('#add-pizza-image').val(),
-            Ingredients : $('#add-pizza-ingredients').val(),
-            Price: $('#add-pizza-price').val(),
-            Weight: $('#add-pizza-weight').val()
+    $('#pizza-form').on('submit', function (e) {
+        e.preventDefault();
+
+        const pizza = {
+            name: $('#pizza-name').val(),
+            image: $('#pizza-image').val(),
+            ingredients: $('#pizza-ingredients').val(),
+            price: parseFloat($('#pizza-price').val()),
+            weight: parseFloat($('#pizza-weight').val())
+        };
+
+        const id = $('#pizza-id').val();
+
+        if (id) {
+            // редактирование
+            $.ajax({
+                url: uri + id,
+                type: "PUT",
+                contentType: "application/json",
+                data: JSON.stringify({ id, ...pizza }),
+                success: function () {
+                    closeModal();
+                    location.reload();
+                },
+                error: () => alert("Ошибка при обновлении пиццы")
+            });
+        } else {
+            // создание
+            $.ajax({
+                url: uri,
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(pizza),
+                success: function () {
+                    closeModal();
+                    location.reload();
+                },
+                error: () => alert("Ошибка при создании пиццы")
+            });
         }
-        var jsonData = JSON.stringify(myPizza);
+    });
 
-        $.ajax({
-            url: uri,
-            type: "POST",
-            contentType: "application/json; charset=utf-8",
-            data: jsonData,
-            success: function (responce) {
-                console.log("Data posted", responce);
-            },
-            error: function (xhr, status, error) {
-                console.error("Error posting data:", error);
-            }
-        })
-        location.reload();      
-    }   
 
-    async function EditPizza() {
-        var pizzaId = ($(this).data('id'));
-        var editProdunt = {
-            Name: $('#edit-pizza-name').val(),
-            Image: $('#edit-pizza-image').val(),
-            Ingredients: $('#edit-pizza-ingredients').val(),
-            Price: $('#edit-pizza-price').val(),
-            Weight: $('#edit-pizza-weight').val()
+    const pizzaModal = new bootstrap.Modal(document.getElementById('pizzaModal'));
+
+    function openModal(pizza = null) {
+        if (pizza) {
+            $('#pizzaModalLabel').text("Редактировать пиццу");
+            $('#pizza-id').val(pizza.id);
+            $('#pizza-name').val(pizza.name);
+            $('#pizza-image').val(pizza.image);
+            $('#pizza-ingredients').val(pizza.ingredients);
+            $('#pizza-price').val(pizza.price);
+            $('#pizza-weight').val(pizza.weight);
+        } else {
+            $('#pizzaModalLabel').text("Добавить пиццу");
+            $('#pizza-form')[0].reset();
+            $('#pizza-id').val('');
         }
-
-        $.ajax({
-            url: uri + productId,
-            type: "PUT",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(editProdunt),
-            sucsess: function (responce) {
-                console.log('Update successful:', response);
-            }
-        }) 
+        pizzaModal.show();
     }
 
-    //function ShowPizzaEdit(pizza) {
+    function closeModal() {
+        pizzaModal.hide();
+    }
+    
 
-    //    $('#pizzaEditModal').modal('show');
-    //    //openModal(pizza);
-    //}
 
 
     $.ajax({
