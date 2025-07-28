@@ -56,7 +56,8 @@ internal class Program
         app.Run (async (context) =>
         {
             app.Logger.LogInformation($"Path: {context.Request.Path} Time:{DateTime.Now.ToLongTimeString()}");
-            await context.Response.WriteAsync("Hello");
+            //await context.Response.WriteAsync("Hello");
+            context.Response.StatusCode = 204; // No Content
 
         });
 

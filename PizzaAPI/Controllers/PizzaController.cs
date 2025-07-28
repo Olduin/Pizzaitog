@@ -20,18 +20,19 @@ namespace PizzaSales.PizzaAPI.Controllers
         }
      
         [HttpGet]
-        public IActionResult PizzaGetAll()
+        public async Task<IActionResult> PizzaGetAll()
         {
             _logger.LogInformation("Запрошен список всех пицц (JSON)");
             try
             {
-                var pizzas = _repository.PizzaGetAll();
+                var pizzas = await _repository.PizzaGetAll();
                 if (pizzas == null)
                 {
                     _logger.LogWarning("Пиццы не найдены (PizzaGetAll вернул null)");
                     return Problem(detail: "Пицца не найдена");
                 }
-                return new JsonResult(pizzas);
+                return Ok(pizzas);
+                //return new JsonResult(pizza);
             }
             catch (Exception ex)
             {
@@ -42,7 +43,7 @@ namespace PizzaSales.PizzaAPI.Controllers
 
         // get api/pizzas/5
         [HttpGet("{id}")]
-        public IActionResult GetPizzaById(int id)
+        public async Task<ActionResult<PizzaModel>> GetPizzaById(int id)
         {
             _logger.LogInformation("Запрошена пицца по ID: {PizzaId}", id);
             try
@@ -64,10 +65,14 @@ namespace PizzaSales.PizzaAPI.Controllers
         }
                 
         [HttpPost]
-        public IActionResult PizzaCreate(PizzaModel pizza)
+        public async Task<ActionResult<PizzaModel>> PizzaCreate(PizzaModel pizza)
         {
-            var _newItem = new PizzaModel(pizza);
-            _repository.PizzaAdd(_newItem);
+            //if (pizza == null)
+            //{
+            //    return BadRequest();
+            //}       
+            _repository.PizzaAdd(pizza);
+            _repository.Save();
             return Ok(pizza);
 
             //if (pizza == null)
@@ -99,10 +104,8 @@ namespace PizzaSales.PizzaAPI.Controllers
                     _item.Price = pizza.Price;
 
                     //_repository.PizzaUpdate(_item);
-                    _repository.Save();
-                   
+                    _repository.Save();                   
                 }
-
             }
             return Ok(pizza);
 

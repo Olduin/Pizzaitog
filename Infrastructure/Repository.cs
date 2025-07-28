@@ -22,9 +22,9 @@ namespace Infrastructure
              _logger = logger;
         }    
 
-        public List<PizzaModel> PizzaGetAll()
+        public async Task <List<PizzaModel>> PizzaGetAll()
         {
-            var pizzas = _pizzaContext.Pizzas.ToList();
+            var pizzas = await _pizzaContext.Pizzas.ToListAsync();
             _logger.LogInformation("Выполнен запрос на получение всех пицц. Количество: {Count}", pizzas.Count());
             return pizzas;
         }
@@ -44,10 +44,10 @@ namespace Infrastructure
             return pizza;
         }
 
-        public void PizzaAdd(PizzaModel pizza)
+        public async void PizzaAdd(PizzaModel pizza)
         {
 
-            _pizzaContext.Pizzas.Add(pizza);
+          await  _pizzaContext.Pizzas.AddAsync(pizza);
         }
 
         public void PizzaUpdate(PizzaModel pizza)

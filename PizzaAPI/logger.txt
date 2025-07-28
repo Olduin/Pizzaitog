@@ -1099,3 +1099,1285 @@ FROM [Pizzas] AS [p]
 WHERE [p].[Id] = @__id_0
 Пицца найдена: БананZZа, Цена: 420
 Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (72ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:9:08:57
+Executed DbCommand (238ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /~/lib/bootstrap/dist/js/bootstrap.bundle.min.js Time:9:09:55
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /~/lib/bootstrap/dist/js/bootstrap.bundle.min.js Time:9:10:20
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /~/lib/bootstrap/dist/js/bootstrap.bundle.min.js Time:9:12:23
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+An unhandled exception has occurred while executing the request.
+Repository disposed
+An error occurred using the connection to database 'Pizza' on server 'localhost\MSSQLSERVER01'.
+An exception occurred while iterating over the results of a query for context type 'PizzaSales.Infrastructure.PizzaContext'.
+System.Threading.Tasks.TaskCanceledException: A task was canceled.
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (116ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошена пицца по ID: 11
+Выполнен запрос на получение пиццы по ID: 11
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (45ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Пицца найдена: Пицца программиста, Цена: 1024
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (72ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (57ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошена пицца по ID: 5
+Выполнен запрос на получение пиццы по ID: 5
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (58ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Пицца найдена: БананZZа, Цена: 420
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (55ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (112ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: / Time:10:03:29
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (117ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (117ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: / Time:10:09:20
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (66ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: / Time:10:11:59
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:41:45
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:42:13
+Запрошен список всех пицц (JSON)
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:42:14
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (83ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Executed DbCommand (83ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (102ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошена пицца по ID: 4
+Выполнен запрос на получение пиццы по ID: 4
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (43ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Пицца найдена: Амазонка, Цена: 550
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:44:18
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (107ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:47:53
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (69ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:49:39
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (61ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:55:51
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:56:53
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (65ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:58:01
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (82ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:59:14
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:10:59:55
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:00:00
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (55ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:01:20
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (112ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:07:59
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:09:24
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (114ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:14:29
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (171ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошена пицца по ID: 4
+Выполнен запрос на получение пиццы по ID: 4
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (41ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Пицца найдена: Амазонка, Цена: 550
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:19:33
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (59ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:21:09
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:44:02
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:45:02
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:46:33
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /api/users Time:11:48:50
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:48:53
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:50:07
+Запрошена пицца по ID: 3
+Выполнен запрос на получение пиццы по ID: 3
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (53ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Пицца найдена: 4 вкуса, Цена: 530
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:50:22
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /api/users Time:11:53:02
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:53:04
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (64ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:11:59:20
+Path: /api/users Time:11:59:23
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:12:02:30
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (102ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (100ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:12:53:04
+Path: /api/users Time:12:53:04
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:12:56:11
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (15ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:12:56:44
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:12:58:07
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (58ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:12:59:24
+Path: /api/users Time:12:59:25
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:01:28
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (73ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:01:36
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /api/users Time:13:01:47
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:05:32
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:05:51
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:05:53
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (67ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Executed DbCommand (67ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Path: /api/users Time:13:06:06
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (72ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /api/users Time:13:07:19
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:08:45
+Path: /api/users Time:13:08:45
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (67ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:09:43
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:10:30
+Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (60ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:14:24
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (62ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошена пицца по ID: 4
+Выполнен запрос на получение пиццы по ID: 4
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (63ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Пицца найдена: Амазонка, Цена: 550
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:18:17
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (110ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Repository disposed
+Repository disposed
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:21:10
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (78ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:24:47
+Запрошен список всех пицц (JSON)
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:24:47
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (142ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (17ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:29:34
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (64ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:35:55
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (61ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошена пицца по ID: 5
+Выполнен запрос на получение пиццы по ID: 5
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (97ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Пицца найдена: БананZZа, Цена: 420
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:47:41
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:13:56:15
+Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:16:57
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:17:36
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:18:30
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (66ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:20:00
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:20:15
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:20:43
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:20:49
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:20:54
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (38ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:21:53
+Executed DbCommand (134ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:27:45
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (196ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (94ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (55ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:30:30
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (50ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:31:14
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:31:44
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:32:00
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:32:04
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:32:06
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:33:41
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:33:57
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (76ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:34:07
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (61ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (289ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 5
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:45:18
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (85ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (Size = 4000), @p2='?' (Size = 100), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Pizzas] ([Image], [Ingredients], [Name], [Price], [Weight])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Pizzas]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:45:31
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (16ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 6
+Repository disposed
+Path: /asf Time:14:45:32
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:46:25
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 6
+Repository disposed
+Path: /asf Time:14:46:25
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:47:00
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 6
+Repository disposed
+Path: /asf Time:14:47:00
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:47:57
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 6
+Repository disposed
+Path: /asf Time:14:47:57
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (63ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 6
+Repository disposed
+Path: /asf Time:14:53:05
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (6ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (Size = 4000), @p2='?' (Size = 100), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Pizzas] ([Image], [Ingredients], [Name], [Price], [Weight])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Pizzas]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Repository disposed
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:54:14
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (Size = 4000), @p2='?' (Size = 100), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Pizzas] ([Image], [Ingredients], [Name], [Price], [Weight])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Pizzas]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Repository disposed
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:54:31
+Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 8
+Repository disposed
+Path: /asf Time:14:54:31
+Path: /image/capriccio_1.jpg Time:14:54:31
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:54:44
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 8
+Repository disposed
+Path: /asf Time:14:54:45
+Path: /image/capriccio_1.jpg Time:14:54:45
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (10ms) [Parameters=[@p0='?' (Size = 255), @p1='?' (Size = 4000), @p2='?' (Size = 100), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Pizzas] ([Image], [Ingredients], [Name], [Price], [Weight])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id]
+FROM [Pizzas]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+Repository disposed
+Запрошен список всех пицц (JSON)
+Path: /.well-known/appspecific/com.chrome.devtools.json Time:14:57:22
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 9
+Repository disposed
+Path: /images/sladkaya_italiya_1.jpg Time:14:57:22
+Path: /image/capriccio_1.jpg Time:14:57:22
+Path: /asf Time:14:57:22
+Запрошена пицца по ID: 15
+Выполнен запрос на получение пиццы по ID: 15
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (7ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+WHERE [p].[Id] = @__id_0
+Пицца найдена: Сладкая Италия , Цена: 610
+Repository disposed
+Path: /images/sladkaya_italiya_1.jpg Time:14:57:26
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (101ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 9
+Repository disposed
+Path: /asf Time:15:00:28
+Path: /image/capriccio_1.jpg Time:15:00:28
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (42ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 9
+Repository disposed
+Path: /asf Time:15:04:07
+Path: /image/capriccio_1.jpg Time:15:04:07
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 9
+Repository disposed
+Path: /asf Time:15:04:20
+Path: /image/capriccio_1.jpg Time:15:04:20
+An unhandled exception has occurred while executing the request.
+Repository disposed
+Now listening on: https://localhost:7013
+Now listening on: http://localhost:5157
+Application started. Press Ctrl+C to shut down.
+Hosting environment: Development
+Content root path: C:\Users\ev.Kotsyuk\Documents\Pizzaitog\PizzaAPI\
+Запрошен список всех пицц (JSON)
+Entity Framework Core 6.0.36 initialized 'PizzaContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None
+Executed DbCommand (96ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [p].[Id], [p].[Image], [p].[Ingredients], [p].[Name], [p].[Price], [p].[Weight]
+FROM [Pizzas] AS [p]
+Выполнен запрос на получение всех пицц. Количество: 9
+Repository disposed
+Path: /image/capriccio_1.jpg Time:15:05:02
+Path: /asf Time:15:05:02

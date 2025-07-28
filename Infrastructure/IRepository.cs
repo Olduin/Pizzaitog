@@ -9,7 +9,7 @@ namespace PizzaSales.Infrastructure
 {
     public interface IRepository<T> : IDisposable where T : class
     {
-        List<T> PizzaGetAll();
+        Task<List<T>> PizzaGetAll();
         T PizzaGetById(int? id);
         void PizzaDelete(int? id);
         void PizzaAdd(T item);

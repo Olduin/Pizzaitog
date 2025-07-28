@@ -13,56 +13,14 @@
 
     <div class="Page-container"></div>
     <div class="my-flex-container"></div>
-
-
-    <!-- Модальное окно -->
-    <div class="modal fade" id="pizzaEditModal" tabindex="-1" role="dialog" aria-labelledby="pizzaModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="pizza-title" id="pizzaModalLabel">Пицца</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" class="pizza-form" onsubmit="addPizza()">
-                        <div class="form-group">
-                            <label>Название</label>
-                            <input type="text" id="pizzaName" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label>Изображение</label>
-                            <input id="pizzaImage" class="form-control" />
-                        </div>
-
-                        <div class="form-group">
-                            <label>Ингредиенты</label>
-                            <input id="pizzaIngredients" class="form-control" />
-                        </div>
-
-                        <div class="form-group">
-                            <label>Цена</label>
-                            <input id="pizzaPrice" class="form-control" />
-                        </div>
-
-                        <div class="form-group">
-                            <label>Вес</label>
-                            <input id="pizzaWheigth" class="form-control" />
-                        </div>
-
-                        <button id="btn-edit" type="submit" value="Add" class="btn-submit">Сохранить</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+    
 
 </body>
 </html>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-<script>           
+<script>
     const uri = "/api/pizza/";
     function generatePizzaCards(pizzas) {
         const container = $(".Page-container");
@@ -71,7 +29,7 @@
         container.empty();
 
         pizzas.forEach(pizza => {
-            const cardHtml = `              
+            const cardHtml = `
                 <div class="flex-card">
                     <img class="card-img" data-id="${pizza.id}" src="${pizza.image}">
                     <a class="card-name" href="Details/${pizza.id}" >${pizza.name}</a>
@@ -84,10 +42,10 @@
                         <a data-id="@item.Id" class="button-link-Delete">Удалить</a>
                     </div>
                 </div>
-            `;            
-            containerFlex.append(cardHtml);          
-            
-        });  
+            `;
+            containerFlex.append(cardHtml);
+
+        });
         container.append(AddButtonHtml);
         container.append(containerFlex);
 
@@ -107,70 +65,70 @@
             })
         });
 
-        //$('.button-link-Create').on('click', function () {
-        //    generatePizzaCreate();
-        //});
+        $('.button-link-Create').on('click', function () {
+            generatePizzaCreate();
+        });
 
-        //$('.button-link-Edit').on('click', function () {   
-        //    var pizzaId = $(this).data('id');
-        //    $.ajax({
-        //        url: uri + pizzaId,
-        //        type: "",
-        //        dataType: "json",
-        //        success: function (data) {
-        //            generatePizzaEdit(data);
-        //        },
-        //        error: function () {
-        //            console.error("Ошибка при получении одной пиццы");
-        //        }
-        //    })
-        //});
-              
-    };        
+        $('.button-link-Edit').on('click', function () {
+            var pizzaId = $(this).data('id');
+            $.ajax({
+                url: uri + pizzaId,
+                type: "",
+                dataType: "json",
+                success: function (data) {
+                    generatePizzaEdit(data);
+                },
+                error: function () {
+                    console.error("Ошибка при получении одной пиццы");
+                }
+            })
+        });
 
-    //function generatePizzaCreate() {
-    //    const container = $(".Page-container");
-    //    container.empty();
+    };
 
-    //    const createFormHtml = `
-    //        <div>
-    //            <form method="POST" class="pizza-form" onsubmit="addPizza()">
-    //                <div class="form-group">
-    //                    <label>Название</label>
-    //                    <input type="text" id="pizzaName" class="form-control" />
-    //                </div>                
-    //                <div class="form-group">
-    //                    <label>Изображение</label>
-    //                    <input id="pizzaImage" class="form-control" />
-    //                </div>
-                
-    //                <div class="form-group">
-    //                    <label>Ингредиенты</label>
-    //                    <input id="add-Ingredients" class="form-control" />
-    //                </div>
-                
-    //                <div class="form-group">
-    //                    <label>Цена</label>
-    //                    <input id="pizzaPrice" class="form-control" />
-    //                </div>
-                
-    //                <div class="form-group">
-    //                    <label>Вес</label>
-    //                    <input id="pizzaWheigth" class="form-control" />
-    //                </div>
-                
-    //                <button type="submit" value="Add" class="btn-submit">Сохранить</button>
-    //            </form>
-    //        </div>
-    //    `;
-    //    container.append(createFormHtml);
-    //}       
+    function generatePizzaCreate() {
+        const container = $(".Page-container");
+        container.empty();
+
+        const createFormHtml = `
+            <div>
+                <form action="javascript:void(0);" method="POST" class="pizza-form" onsubmit="addPizza()">
+                    <div class="form-group">
+                        <label>Название</label>
+                        <input type="text" id="add-pizza-name" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Изображение</label>
+                        <input type="text" id="add-pizza-image" class="form-control" />
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Ингредиенты</label>
+                        <input type="text" id="add-pizza-ingredients" class="form-control" />
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Цена</label>
+                        <input type="text" id="add-pizza-price" class="form-control" />
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Вес</label>
+                        <input type="text" id="add-pizza-weight" class="form-control" />
+                    </div>
+            
+                    <input type="submit" value="Соранить" class="btn-submit"></input>
+                </form>
+            </div>
+            `;
+        container.append(createFormHtml);
+    }
 
     function generatePizzaDetail(pizza) {
         const container = $(".Page-container");
         container.empty();
 
-        const cardHtml = `   
+        const cardHtml = `
             <div class="pizza-details-card">
                 <img class="card-img" src="${pizza.image}">
                 <h4 class="pizza-title">${pizza.name}</h4>
@@ -182,43 +140,50 @@
                 </div>
             </div>
         `;
-    
-        container.append(cardHtml);
-    }; 
 
-    //async function addPizza(pizzaName, pizzaImage, pizzaIngredients, pizzaPrice, pizzaWheigth) {
-    //    const response = await fetch(uri, {
-    //        method: "POST",
-    //        headers: { "Accept": "application/json", "Content-Type": "application/json" },
-    //        body: JSON.stringify({
-    //            name: pizzaName,
-    //            image: pizzaImage,
-    //            ingredients: pizzaIngredients,
-    //            pizzaPrice: parseInt(pizzaPrice),
-    //            weight: parseInt(pizzaWheigth)
-    //        })
-    //    });
-    //    if (response.ok == true) {
-    //        const pizza = await response.json();
-    //        reset();
-    //    }
+        container.append(cardHtml);
+    };
+
+    async function addPizza() {
+        const $form = $(this).closest('.pizza-form');
+
+        var myPizza = {
+        //    Name: $form.find('.add-pizza-name'),
+        //    Image: $form.find('.add-pizza-image').attr('src'),
+        //    Ingredients: $form.find('.add-pizza-ingredients').text(),
+        //    Price: $form.find('.card-price'),
+        //    Weight: $form.find('.add-pizza-price'),
+        //}
+            Name: $('#add-pizza-name').val(),
+            Image : $('#add-pizza-image').val(),
+            Ingredients : $('#add-pizza-ingredients').val(),
+            Price: $('#add-pizza-price').val(),
+            Weight: $('#add-pizza-weight').val()
+        }
+        var jsonData = JSON.stringify(myPizza);
+
+        $.ajax({
+            url: uri,
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: jsonData,
+            success: function (responce) {
+                console.log("Data posted", responce);
+            },
+            error: function (xhr, status, error) {
+                console.error("Error posting data:", error);
+            }
+        })
+
+        location.reload();      
+    }
+
+    //function ShowPizzaEdit(pizza) {
+
+    //    $('#pizzaEditModal').modal('show');
+    //    //openModal(pizza);
     //}
 
-    function addPizza(pizza) {
-        return $.ajax({
-            url: uri,
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(pizza)
-        })
-    }
-
-    function ShowPizzaEdit(pizza) {
-
-        //$('#pizzaEditModal').modal('show');
-        openModal(pizza);
-    }
-       
 
     $.ajax({
         url: "/api/pizza",
