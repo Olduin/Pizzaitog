@@ -89,27 +89,27 @@
             }
         })
 
-        $('.button-link-Edit').on('click', function (e) {
-            var pizzaId = $(this).data('id');
-            EditPizza(id);
+        //$('.button-link-Edit').on('click', function (e) {
+        //    var pizzaId = $(this).data('id');
+        //    EditPizza(id);
 
-            if (IsDelete == true) {
-                $.ajax({
-                    url: uri + pizzaId,
-                    type: "PUT",
-                    data: { id: pizzaId },
-                    success: function (data) {
-                        window.location.reload();
-                    },
-                })
-            }
-        })
+        //    if (IsDelete == true) {
+        //        $.ajax({
+        //            url: uri + pizzaId,
+        //            type: "PUT",
+        //            data: { id: pizzaId },
+        //            success: function (data) {
+        //                window.location.reload();
+        //            },
+        //        })
+        //    }
+        //})
 
         $('.button-link-Edit').on('click', function () {
             var pizzaId = $(this).data('id');
             $.ajax({
                 url: uri + pizzaId,
-                type: "",
+                type: "PUT",
                 dataType: "json",
                 success: function (data) {
                     generatePizzaEdit(data);
@@ -159,6 +159,44 @@
         container.append(createFormHtml);
     }
 
+    function generatePizzaEdit() {
+        const container = $(".Page-container");
+        container.empty();
+
+        const createFormHtml = `
+        <div>
+            <form action="javascript:void(0);" method="PUT" class="pizza-form" onsubmit="EditPizza()">
+                <div class="form-group">
+                    <label>Название</label>
+                    <input type="text" id="edit-pizza-name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Изображение</label>
+                    <input type="text" id="edit-pizza-image" class="form-control" />
+                </div>
+        
+                <div class="form-group">
+                    <label>Ингредиенты</label>
+                    <input type="text" id="edit-pizza-ingredients" class="form-control" />
+                </div>
+        
+                <div class="form-group">
+                    <label>Цена</label>
+                    <input type="text" id="edit-pizza-price" class="form-control" />
+                </div>
+        
+                <div class="form-group">
+                    <label>Вес</label>
+                    <input type="text" id="edit-pizza-weight" class="form-control" />
+                </div>
+        
+                <input type="submit" value="Соранить" class="btn-submit"></input>
+            </form>
+        </div>
+        `;
+        container.append(createFormHtml);
+    }
+
     function generatePizzaDetail(pizza) {
         const container = $(".Page-container");
         container.empty();
@@ -183,12 +221,6 @@
         const $form = $(this).closest('.pizza-form');
 
         var myPizza = {
-        //    Name: $form.find('.add-pizza-name'),
-        //    Image: $form.find('.add-pizza-image').attr('src'),
-        //    Ingredients: $form.find('.add-pizza-ingredients').text(),
-        //    Price: $form.find('.card-price'),
-        //    Weight: $form.find('.add-pizza-price'),
-        //}
             Name: $('#add-pizza-name').val(),
             Image : $('#add-pizza-image').val(),
             Ingredients : $('#add-pizza-ingredients').val(),
@@ -209,11 +241,29 @@
                 console.error("Error posting data:", error);
             }
         })
-
         location.reload();      
-    }
+    }   
 
-   
+    async function EditPizza() {
+        var pizzaId = ($(this).data('id'));
+        var editProdunt = {
+            Name: $('#edit-pizza-name').val(),
+            Image: $('#edit-pizza-image').val(),
+            Ingredients: $('#edit-pizza-ingredients').val(),
+            Price: $('#edit-pizza-price').val(),
+            Weight: $('#edit-pizza-weight').val()
+        }
+
+        $.ajax({
+            url: uri + productId,
+            type: "PUT",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(editProdunt),
+            sucsess: function (responce) {
+                console.log('Update successful:', response);
+            }
+        }) 
+    }
 
     //function ShowPizzaEdit(pizza) {
 
