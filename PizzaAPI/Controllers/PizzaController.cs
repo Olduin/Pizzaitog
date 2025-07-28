@@ -65,18 +65,22 @@ namespace PizzaSales.PizzaAPI.Controllers
                 
         [HttpPost]
         public IActionResult PizzaCreate(PizzaModel pizza)
-        {      
-            if (pizza == null)
-            {
-                //Добавление
-                var _newItem = new PizzaModel(pizza);
-                _repository.PizzaAdd(_newItem);
-            }
-            _repository.Save();
+        {
+            var _newItem = new PizzaModel(pizza);
+            _repository.PizzaAdd(_newItem);
             return Ok(pizza);
-            //return RedirectToAction("Index");
 
-            return CreatedAtAction(nameof(pizza), new { id = pizza.Id }, pizza);
+            //if (pizza == null)
+            //{
+            //    //Добавление
+            //    var _newItem = new PizzaModel(pizza);
+            //    _repository.PizzaAdd(_newItem);
+            //}
+            //_repository.Save();
+            //return Ok(pizza);
+            ////return RedirectToAction("Index");
+
+            //return CreatedAtAction(nameof(pizza), new { id = pizza.Id }, pizza);
         }
 
         [HttpPut("{id}")]

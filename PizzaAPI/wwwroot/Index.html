@@ -15,6 +15,48 @@
     <div class="my-flex-container"></div>
 
 
+    <!-- Модальное окно -->
+    <div class="modal fade" id="pizzaEditModal" tabindex="-1" role="dialog" aria-labelledby="pizzaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="pizza-title" id="pizzaModalLabel">Пицца</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" class="pizza-form" onsubmit="addPizza()">
+                        <div class="form-group">
+                            <label>Название</label>
+                            <input type="text" id="pizzaName" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>Изображение</label>
+                            <input id="pizzaImage" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ингредиенты</label>
+                            <input id="pizzaIngredients" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Цена</label>
+                            <input id="pizzaPrice" class="form-control" />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Вес</label>
+                            <input id="pizzaWheigth" class="form-control" />
+                        </div>
+
+                        <button id="btn-edit" type="submit" value="Add" class="btn-submit">Сохранить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
 </body>
 </html>
 
@@ -65,64 +107,64 @@
             })
         });
 
-        $('.button-link-Create').on('click', function () {
-            generatePizzaCreate();
-        });
+        //$('.button-link-Create').on('click', function () {
+        //    generatePizzaCreate();
+        //});
 
-        $('.button-link-Edit').on('click', function () {   
-            var pizzaId = $(this).data('id');
-            $.ajax({
-                url: uri + pizzaId,
-                type: "",
-                dataType: "json",
-                success: function (data) {
-                    generatePizzaEdit(data);
-                },
-                error: function () {
-                    console.error("Ошибка при получении одной пиццы");
-                }
-            })
-        });
+        //$('.button-link-Edit').on('click', function () {   
+        //    var pizzaId = $(this).data('id');
+        //    $.ajax({
+        //        url: uri + pizzaId,
+        //        type: "",
+        //        dataType: "json",
+        //        success: function (data) {
+        //            generatePizzaEdit(data);
+        //        },
+        //        error: function () {
+        //            console.error("Ошибка при получении одной пиццы");
+        //        }
+        //    })
+        //});
               
     };        
 
-    function generatePizzaCreate() {
-        const container = $(".Page-container");
-        container.empty();
+    //function generatePizzaCreate() {
+    //    const container = $(".Page-container");
+    //    container.empty();
 
-        const createFormHtml = `
-            <div>
-                <form method="POST" class="pizza-form" onsubmit="addPizza()">
-                    <div class="form-group">
-                        <label>Название</label>
-                        <input type="text" id="pizzaName" class="form-control" />
-                    </div>                
-                    <div class="form-group">
-                        <label>Изображение</label>
-                        <input id="pizzaImage" class="form-control" />
-                    </div>
+    //    const createFormHtml = `
+    //        <div>
+    //            <form method="POST" class="pizza-form" onsubmit="addPizza()">
+    //                <div class="form-group">
+    //                    <label>Название</label>
+    //                    <input type="text" id="pizzaName" class="form-control" />
+    //                </div>                
+    //                <div class="form-group">
+    //                    <label>Изображение</label>
+    //                    <input id="pizzaImage" class="form-control" />
+    //                </div>
                 
-                    <div class="form-group">
-                        <label>Ингредиенты</label>
-                        <input id="add-Ingredients" class="form-control" />
-                    </div>
+    //                <div class="form-group">
+    //                    <label>Ингредиенты</label>
+    //                    <input id="add-Ingredients" class="form-control" />
+    //                </div>
                 
-                    <div class="form-group">
-                        <label>Цена</label>
-                        <input id="pizzaPrice" class="form-control" />
-                    </div>
+    //                <div class="form-group">
+    //                    <label>Цена</label>
+    //                    <input id="pizzaPrice" class="form-control" />
+    //                </div>
                 
-                    <div class="form-group">
-                        <label>Вес</label>
-                        <input id="pizzaWheigth" class="form-control" />
-                    </div>
+    //                <div class="form-group">
+    //                    <label>Вес</label>
+    //                    <input id="pizzaWheigth" class="form-control" />
+    //                </div>
                 
-                    <button type="submit" value="Add" class="btn-submit">Сохранить</button>
-                </form>
-            </div>
-        `;
-        container.append(createFormHtml);
-    }       
+    //                <button type="submit" value="Add" class="btn-submit">Сохранить</button>
+    //            </form>
+    //        </div>
+    //    `;
+    //    container.append(createFormHtml);
+    //}       
 
     function generatePizzaDetail(pizza) {
         const container = $(".Page-container");
@@ -144,22 +186,37 @@
         container.append(cardHtml);
     }; 
 
-    async function addPizza(pizzaName, pizzaImage, pizzaIngredients, pizzaPrice, pizzaWheigth) {
-        const response = await fetch(uri, {
-            method: "POST",
-            headers: { "Accept": "application/json", "Content-Type": "application/json" },
-            body: JSON.stringify({
-                name: pizzaName,
-                image: pizzaImage,
-                ingredients: pizzaIngredients,
-                pizzaPrice: parseInt(pizzaPrice),
-                weight: parseInt(pizzaWheigth)
-            })
-        });
-        if (response.ok == true) {
-            const pizza = await response.json();
-            reset();
-        }
+    //async function addPizza(pizzaName, pizzaImage, pizzaIngredients, pizzaPrice, pizzaWheigth) {
+    //    const response = await fetch(uri, {
+    //        method: "POST",
+    //        headers: { "Accept": "application/json", "Content-Type": "application/json" },
+    //        body: JSON.stringify({
+    //            name: pizzaName,
+    //            image: pizzaImage,
+    //            ingredients: pizzaIngredients,
+    //            pizzaPrice: parseInt(pizzaPrice),
+    //            weight: parseInt(pizzaWheigth)
+    //        })
+    //    });
+    //    if (response.ok == true) {
+    //        const pizza = await response.json();
+    //        reset();
+    //    }
+    //}
+
+    function addPizza(pizza) {
+        return $.ajax({
+            url: uri,
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(pizza)
+        })
+    }
+
+    function ShowPizzaEdit(pizza) {
+
+        //$('#pizzaEditModal').modal('show');
+        openModal(pizza);
     }
        
 
