@@ -21,8 +21,8 @@ function generatePizzaCards(pizzas) {
                 </div>
             `;
         containerFlex.append(cardHtml);
-
     });
+
     container.append(AddButtonHtml);
     container.append(containerFlex);
 
@@ -77,7 +77,6 @@ function generatePizzaCards(pizzas) {
         });
     });
 
-
     $('.button-link-Delete').on('click', function (e) {
         var pizzaId = $(this).data('id');
         let IsDelete = confirm("Удалить элемент?");
@@ -89,25 +88,9 @@ function generatePizzaCards(pizzas) {
                 success: function (data) {
                     location.reload(true);
                 },
-
             })
         }
     })
-
-    //$('.button-link-Edit').on('click', function () {
-    //    var pizzaId = $(this).data('id');
-    //    $.ajax({
-    //        url: uri + pizzaId,
-    //        type: "PUT",
-    //        dataType: "json",
-    //        success: function (data) {
-    //            generatePizzaEdit(data);
-    //        },
-    //        error: function () {
-    //            console.error("Ошибка при получении одной пиццы");
-    //        }
-    //    })
-    //});
 };
 
 $.ajax({
@@ -160,7 +143,6 @@ function generatePizzaDetail(pizza) {
     });
 };
 
-
 $('#pizza-form').on('submit', function (e) {
     e.preventDefault();
 
@@ -175,7 +157,6 @@ $('#pizza-form').on('submit', function (e) {
     const id = $('#pizza-id').val();
 
     if (id) {
-        // редактирование
         $.ajax({
             url: uri + id,
             type: "PUT",
@@ -188,7 +169,6 @@ $('#pizza-form').on('submit', function (e) {
             error: () => alert("Ошибка при обновлении пиццы")
         });
     } else {
-        // создание
         $.ajax({
             url: uri,
             type: "POST",
@@ -232,8 +212,8 @@ function openDetailModal(pizza) {
     $('#pizza-detail-image').attr("src", pizza.image);
     $('#pizza-detail-name').text(pizza.name);
     $('#pizza-detail-ingredient').text(pizza.ingredients);
-    $('#pizza-detail-weight').text(pizza.weight);
-    $('#pizza-detail-price').text(pizza.price);
+    $('#pizza-detail-weight').text(pizza.weight + ' гр.');  
+    $('#pizza-detail-price').text(pizza.price + ' ₽');
 
     //const container = $(".detail-modal");
     //container.empty();

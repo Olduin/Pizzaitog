@@ -42,7 +42,7 @@ body {
 .flex-card {
     border: 2px solid;
     border-color: white;
-    width: 27%;
+    width: 23%;
     height: 40%;
     padding: 5px;
     background-color: white;
@@ -78,6 +78,7 @@ body {
     border-radius: 20%;
     margin-block-end: 10px;
     justify-content: center;
+   
 }
 
 .card-price {
@@ -85,12 +86,15 @@ body {
     font-weight: bold;
     color: dimgray;
     display: inline-block;
-    font-family:Calibri;
+    font-family: Calibri;
+    font-size: 30px;
 }
 
 .card-weight {
     display: inline-block;
     font-family: Calibri;
+    font-size: 20px;
+    margin-left:6px;
 }
 
 .button-link {
@@ -151,11 +155,22 @@ body {
     }
 
 .btn-success {
-    border: 2px solid;
+    border: 1px solid;
     background-color: #80c142;
     color: white;
 }
     .btn-success:hover {
+        background-color: white;
+        border-color: #80c142;
+        color: #80c142;
+    }
+
+.btn-secondary {
+    border: 1px solid;
+    background-color: #80c142;
+    color: white;
+}
+    .btn-secondary:hover {
         background-color: white;
         border-color: #80c142;
         color: #80c142;
@@ -165,23 +180,25 @@ body {
     background-color: #80c142;
     color: white;
     float: left;
-    
+    outline:none;
 }
 .btn-outline-primary:hover {
     background-color: white;
     border-color: #80c142;
     color: #80c142;
 }
-.btn-outline-primary:after {
-    background-color: white;
-    border-color: #80c142;
-    color: #80c142;
-}
-.btn-outline-primary:active {
-    background-color: white;
-    border-color: #80c142;
-    color: #80c142;
-}
+    .btn-outline-primary:after {
+        background-color: white;
+        border-color: #80c142;
+        color: #80c142;
+        outline: none;
+    }
+    .btn-outline-primary:active {
+        background-color: white;
+        border-color: #80c142;
+        color: #80c142;
+        outline: none;
+    }
 
     .btn-outline-primary:focus + :focus {
         background-color: white;
@@ -307,7 +324,7 @@ label {
 
 .pizza-image {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 25px;
     object-fit: cover;
     margin-bottom: 20px;
 }
