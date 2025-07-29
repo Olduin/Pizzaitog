@@ -10,14 +10,14 @@ using Domain;
 
 internal class Program
 {
-    private static async Task Main(string[] args)
+    private static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        
+
         // Add services to the container.
-        builder.Services.AddControllersWithViews();       
-        builder.Services.AddDbContext<PizzaContext> (options => options.UseSqlServer());
+        builder.Services.AddControllersWithViews();
+        builder.Services.AddDbContext<PizzaContext>(options => options.UseSqlServer());
         builder.Services.AddScoped<IRepository<PizzaModel>, Repository>();
 
         //builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));        
@@ -26,12 +26,12 @@ internal class Program
 
         // Configure the HTTP request pipeline.
         if (!app.Environment.IsDevelopment())
-        if (!app.Environment.IsDevelopment())
-        {
-            app.UseExceptionHandler("/Home/Error");
-            // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-            app.UseHsts();
-        }
+            if (!app.Environment.IsDevelopment())
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
 
         app.UseHttpsRedirection();
 
@@ -49,11 +49,11 @@ internal class Program
 
             //endpoints.MapFallbackToFile("index.html");
         });
-        //app.MapControllerRoute()
+        //app.MapControllerRoute(
         //    name: "default",
         //    pattern: "{controller=Home}/{action=Index}/{id?}");
 
-        app.Run (async (context) =>
+        app.Run(async (context) =>
         {
             app.Logger.LogInformation($"Path: {context.Request.Path} Time:{DateTime.Now.ToLongTimeString()}");
             //await context.Response.WriteAsync("Hello");
@@ -63,6 +63,6 @@ internal class Program
 
         app.Run();
 
-       
+
     }
 }
