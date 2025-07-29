@@ -22,10 +22,10 @@ namespace Infrastructure
              _logger = logger;
         }    
 
-        public async Task <List<PizzaModel>> PizzaGetAll()
+        public List<PizzaModel> PizzaGetAll()
         {
-            var pizzas = await _pizzaContext.Pizzas.ToListAsync();
-            _logger.LogInformation("Выполнен запрос на получение всех пицц. Количество: {Count}", pizzas.Count());
+            var pizzas = _pizzaContext.Pizzas.ToList();
+            _logger.LogInformation("Выполнен запрос на получение всех пицц. Количество: {Count}", pizzas.Count);
             return pizzas;
         }
 
@@ -44,15 +44,30 @@ namespace Infrastructure
             return pizza;
         }
 
-        public async void PizzaAdd(PizzaModel pizza)
+        public void PizzaAdd(PizzaModel pizza)
         {
-
-          await  _pizzaContext.Pizzas.AddAsync(pizza);
+            try
+            {
+                _pizzaContext.Pizzas.AddAsync(pizza);
+            }
+            catch
+            {
+                _logger.LogInformation("Ошибка добавления: {Name}, Цена: {Price}", pizza.Name, pizza.Price);
+            }
+            
         }
 
         public void PizzaUpdate(PizzaModel pizza)
         {
-            _pizzaContext.Entry(pizza).State = EntityState.Modified;
+            try
+            {
+                _pizzaContext.Entry(pizza).State = EntityState.Modified;
+            }
+            catch
+            {
+                _logger.LogInformation("Ошибка добавления: {Name}, вес: {Weight}, Цена: {Price}", pizza.Name, pizza.Weight, pizza.Price);
+            }
+            Save();
         }
 
         public void PizzaDelete(int? id)

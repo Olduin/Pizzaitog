@@ -20,12 +20,12 @@ namespace PizzaSales.PizzaAPI.Controllers
         }
      
         [HttpGet]
-        public async Task<IActionResult> PizzaGetAll()
+        public IActionResult PizzaGetAll()
         {
             _logger.LogInformation("Запрошен список всех пицц (JSON)");
             try
             {
-                var pizzas = await _repository.PizzaGetAll();
+                var pizzas = _repository.PizzaGetAll();
                 if (pizzas == null)
                 {
                     _logger.LogWarning("Пиццы не найдены (PizzaGetAll вернул null)");
@@ -43,7 +43,7 @@ namespace PizzaSales.PizzaAPI.Controllers
 
         // get api/pizzas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<PizzaModel>> GetPizzaById(int id)
+        public IActionResult GetPizzaById(int id)
         {
             _logger.LogInformation("Запрошена пицца по ID: {PizzaId}", id);
             try
@@ -65,7 +65,7 @@ namespace PizzaSales.PizzaAPI.Controllers
         }
                 
         [HttpPost]
-        public async Task<ActionResult<PizzaModel>> PizzaCreate(PizzaModel pizza)
+        public IActionResult PizzaCreate(PizzaModel pizza)
         {                
             _repository.PizzaAdd(pizza);
             _repository.Save();
@@ -109,13 +109,12 @@ namespace PizzaSales.PizzaAPI.Controllers
 
         // DELETE api/pizzas/5
         [HttpDelete("{id}")]
-        public async  Task<ActionResult> PizzaDelete(int? id)
+        public  IActionResult PizzaDelete(int? id)
         {
             if (id != null)
             {
                 _repository.PizzaDelete(id);
-                _repository.Save();
-                return NotFound();
+                _repository.Save();                
             }
             return NoContent();
 

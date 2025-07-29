@@ -20,8 +20,8 @@ internal class Program
         builder.Services.AddDbContext<PizzaContext> (options => options.UseSqlServer());
         builder.Services.AddScoped<IRepository<PizzaModel>, Repository>();
 
-        builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));        
-
+        //builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));        
+        builder.Logging.AddFile(Path.Combine("C:\\Temp", "logger.txt"));
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -49,7 +49,7 @@ internal class Program
 
             //endpoints.MapFallbackToFile("index.html");
         });
-        //app.MapControllerRoute(
+        //app.MapControllerRoute()
         //    name: "default",
         //    pattern: "{controller=Home}/{action=Index}/{id?}");
 
