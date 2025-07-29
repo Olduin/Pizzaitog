@@ -1,12 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using PizzaSales.Infrastructure;
-using PizzaSales.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain;
 
 namespace Infrastructure
 {
@@ -25,7 +25,7 @@ namespace Infrastructure
         public List<PizzaModel> PizzaGetAll()
         {
             var pizzas = _pizzaContext.Pizzas.ToList();
-            _logger.LogInformation("Выполнен запрос на получение всех пицц. Количество: {Count}", pizzas.Count());
+            _logger.LogInformation("Выполнен запрос на получение всех пицц. Количество: {Count}", pizzas.Count);
             return pizzas;
         }
 
@@ -46,13 +46,28 @@ namespace Infrastructure
 
         public void PizzaAdd(PizzaModel pizza)
         {
-
-            _pizzaContext.Pizzas.Add(pizza);
+            try
+            {
+                _pizzaContext.Pizzas.AddAsync(pizza);
+            }
+            catch
+            {
+                _logger.LogInformation("Ошибка добавления: {Name}, Цена: {Price}", pizza.Name, pizza.Price);
+            }
+            
         }
 
         public void PizzaUpdate(PizzaModel pizza)
         {
-            _pizzaContext.Entry(pizza).State = EntityState.Modified;
+            try
+            {
+                _pizzaContext.Entry(pizza).State = EntityState.Modified;
+            }
+            catch
+            {
+                _logger.LogInformation("Ошибка добавления: {Name}, вес: {Weight}, Цена: {Price}", pizza.Name, pizza.Weight, pizza.Price);
+            }
+            Save();
         }
 
         public void PizzaDelete(int? id)
@@ -61,7 +76,9 @@ namespace Infrastructure
             if (pizza != null)
             {
                 _pizzaContext.Pizzas.Remove(pizza);
+                //Save();
             }
+
         }
 
         public void Save()

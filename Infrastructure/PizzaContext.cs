@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Domain;
 using Microsoft.EntityFrameworkCore;
-using PizzaSales.Domain;
 
 namespace PizzaSales.Infrastructure
 {

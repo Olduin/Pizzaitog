@@ -25,16 +25,24 @@ body {
     width: 60px;
 }
 
+.Page-container {
+    justify-content: center;
+}
+
 .my-flex-container {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+   
 }
 
 .flex-card {
     border: 2px solid;
     border-color: white;
-    width: 30%;
+    width: 27%;
     height: 40%;
     padding: 5px;
     background-color: white;
@@ -115,7 +123,83 @@ body {
     border-radius: 20px;
 }
 
-    .button-link-Edit:hover {
+.button-link-Edit:hover {
+    background-color: white;
+    border-color: #80c142;
+    color: #80c142;
+}
+
+.button-link-Create {
+    border: 2px solid;
+    display: block;
+    padding: 10px 20px;
+    background-color: #80c142;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+    .button-link-Create:hover {
+        background-color: white;
+        border-color: #80c142;
+        color: #80c142;
+        border-radius: 20px;
+    }
+
+.btn-success {
+    border: 2px solid;
+    background-color: #80c142;
+    color: white;
+}
+    .btn-success:hover {
+        background-color: white;
+        border-color: #80c142;
+        color: #80c142;
+    }
+.btn-outline-primary {
+    border: 2px solid;
+    background-color: #80c142;
+    color: white;
+    float: left;
+    
+}
+.btn-outline-primary:hover {
+    background-color: white;
+    border-color: #80c142;
+    color: #80c142;
+}
+.btn-outline-primary:after {
+    background-color: white;
+    border-color: #80c142;
+    color: #80c142;
+}
+.btn-outline-primary:active {
+    background-color: white;
+    border-color: #80c142;
+    color: #80c142;
+}
+
+    .btn-outline-primary:focus + :focus {
+        background-color: white;
+        border-color: #80c142;
+        color: #80c142;
+    }
+
+    .btn-outline-primary:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
+        background-color: white;
+        border-color: #80c142;
+        color: #80c142;
+    }
+
+        .btn-outline-primary:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
+            background-color: white;
+            border-color: #80c142;
+            color: #80c142;
+        }
+
+    .btn-outline-primary:disabled, .btn-outline-primary.disabled {
         background-color: white;
         border-color: #80c142;
         color: #80c142;
@@ -140,11 +224,11 @@ body {
         color: darkred;
     }
 
-input:invalid {
+input:invalid:not(:placeholder-shown) {
     border-color: red;
 }
 
-input:valid {
+input:valid:not(:placeholder-shown) {
     border-color: green;
 }
 
