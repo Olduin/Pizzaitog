@@ -8,8 +8,7 @@ function generatePizzaCards(pizzas) {
     `;
     pageContainer.append(AddCardsHtml);
     const flexContainer = $(".my-flex-container");       
-    //flexContainer.empty();
-
+    
     pizzas.forEach(pizza => {
         const cardHtml = `
                 <div class="flex-card" id="card1" data-id="card-${pizza.id}">
@@ -19,7 +18,6 @@ function generatePizzaCards(pizzas) {
                     <div class="card-footer">
                         <div class="card-price">${pizza.price} &#8381;</div>
                         <div class="card-weight">${pizza.weight} гр.</div>
-                        <a href="#" class="button-link">В корзину</a>
                         <a data-id="${pizza.id}" class="button-link-Edit">Изменить</a>
                         <a data-id="${pizza.id}" class="button-link-Delete">Удалить</a>
                     </div>
@@ -36,7 +34,11 @@ function generatePizzaCards(pizzas) {
             url: uri + pizzaId,
             type: "GET",
             dataType: "json",
+            beforeSend: function () {
+                openPizzaLoader();
+            },
             success: function (data) {
+                closePizzaLoader();
                 generatePizzaDetail(data);
 
             },
@@ -52,7 +54,11 @@ function generatePizzaCards(pizzas) {
             url: uri + pizzaId,
             type: "GET",
             dataType: "json",
+            beforeSend: function () {
+                openPizzaLoader();
+            },
             success: function (data) {
+                closePizzaLoader();
                 openDetailModal(data);
 
             },
@@ -72,7 +78,11 @@ function generatePizzaCards(pizzas) {
             url: uri + pizzaId,
             type: "GET",
             dataType: "json",
+            beforeSend: function () {
+                openPizzaLoader();
+            },
             success: function (data) {
+                closePizzaLoader();
                 openEditModal(data);
             },
             error: function () {
@@ -90,7 +100,11 @@ function generatePizzaCards(pizzas) {
                 url: uri + pizzaId,
                 type: "DELETE",
                 data: { id: pizzaId },
+                beforeSend: function () {
+                    openPizzaLoader();
+                },
                 success: function (data) {
+                    closePizzaLoader();
                     elemToDel.remove();                    
                                         
                 },
@@ -99,45 +113,37 @@ function generatePizzaCards(pizzas) {
     })
 };
 
-function generatePizzaDetail(pizza) {
-    const container = $(".Page-container");
-    const flexContainer = $(".my-flex-container")
-    container.empty();    
+const pizzaEditModal = new bootstrap.Modal(document.getElementById('pizzaEditModal'));
+const pizzaDetailModal = new bootstrap.Modal(document.getElementById('pizzaDetailModal'));
+const mySpinner = document.getElementById('pizzaLoader');
 
-    const cardHtml = `
-            <div class="pizza-details-card" data-id="${pizza.id}">
-                <button id="back-to-list" class="btn btn-outline-primary">
-                    &#8592; Назад
-                </button>
-                <img class="card-img" src="${pizza.image}">
-                <h4 class="pizza-title">${pizza.name}</h4>
-                <div class="pizza-ingredient"> ${pizza.ingredients} </div>
-                <div class="card-footer">
-                    <div class="card-price">${pizza.price} &#8381;</div>
-                    <div class="card-weight">${pizza.weight} гр.</div>
-                    <a href="#" class="button-link">В корзину</a>
-                </div>
-            </div>
-        `;
+function openEditModal(pizza = null) {
+    if (pizza) {
+        $('#pizzaEditModalLabel').text("Редактировать пиццу");
+        $('#pizza-id').val(pizza.id);
+        $('#pizza-name').val(pizza.name);
+        $('#pizza-image').val(pizza.image);
+        $('#pizza-ingredients').val(pizza.ingredients);
+        $('#pizza-price').val(pizza.price);
+        $('#pizza-weight').val(pizza.weight);
+    } else {
+        $('#pizzaEditModalLabel').text("Добавить пиццу");
+        $('#pizza-form')[0].reset();
+        $('#pizza-id').val('');
+    }
+    pizzaEditModal.show();
+}
 
-    container.append(cardHtml);
+function closePizzaLoader() {
+    $("#pizzaLoader").hide();
+}
+function openPizzaLoader() {
+    $("#pizzaLoader").show();
+}
 
-    $('#back-to-list').on('click', function () {
-        $.ajax({
-            url: "/api/pizza",
-            type: "GET",
-            dataType: "json",
-            success: function (data) {
-                generatePizzaCards(data);
-            },
-            error: function () {
-                console.error("Ошибка при получении списка пицц");
-            }
-        });
-        PizzasGetAll();
-        //location.reload();
-    });
-};
+function closeEditModal() {
+    pizzaEditModal.hide();
+}
 
 $('#pizza-form').on('submit', function (e) {
     e.preventDefault();
@@ -158,8 +164,12 @@ $('#pizza-form').on('submit', function (e) {
             type: "PUT",
             contentType: "application/json",
             data: JSON.stringify({ id, ...pizza }),
+            beforeSend: function () {
+                openPizzaLoader();
+            },
             success: function () {
-                closeEditModal();                        
+                closePizzaLoader();
+                closeEditModal();
                 PizzasGetAll();
             },
             error: () => alert("Ошибка при обновлении пиццы")
@@ -170,39 +180,46 @@ $('#pizza-form').on('submit', function (e) {
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(pizza),
+            beforeSend: function () {
+                openPizzaLoader();
+            },
             success: function () {
+                closePizzaLoader();
                 closeEditModal();
-                PizzasGetAll();                
+                PizzasGetAll();
             },
             error: () => alert("Ошибка при создании пиццы")
         });
     }
 });
 
-const pizzaEditModal = new bootstrap.Modal(document.getElementById('pizzaEditModal'));
-const pizzaDetailModal = new bootstrap.Modal(document.getElementById('pizzaDetailModal'));
+function generatePizzaDetail(pizza) {
+    const container = $(".Page-container");
+    const flexContainer = $(".my-flex-container")
+    container.empty();
 
-function openEditModal(pizza = null) {
-    if (pizza) {
-        $('#pizzaEditModalLabel').text("Редактировать пиццу");
-        $('#pizza-id').val(pizza.id);
-        $('#pizza-name').val(pizza.name);
-        $('#pizza-image').val(pizza.image);
-        $('#pizza-ingredients').val(pizza.ingredients);
-        $('#pizza-price').val(pizza.price);
-        $('#pizza-weight').val(pizza.weight);
-    } else {
-        $('#pizzaEditModalLabel').text("Добавить пиццу");
-        $('#pizza-form')[0].reset();
-        $('#pizza-id').val('');
-    }
-    pizzaEditModal.show();
-}
+    const cardHtml = `
+            <div class="pizza-details-card" data-id="${pizza.id}">
+                <button id="back-to-list" class="btn btn-outline-primary">
+                    &#8592; Назад
+                </button>
+                <img class="card-img" src="${pizza.image}">
+                <h4 class="pizza-title">${pizza.name}</h4>
+                <div class="pizza-ingredient"> ${pizza.ingredients} </div>
+                <div class="card-footer">
+                    <div class="card-price">${pizza.price} &#8381;</div>
+                    <div class="card-weight">${pizza.weight} гр.</div>
+                </div>
+            </div>
+        `;
 
-function closeEditModal() {
-    pizzaEditModal.hide();
-}
+    container.append(cardHtml);
 
+    $('#back-to-list').on('click', function () {   
+        PizzasGetAll();
+        //location.reload();
+    });
+};
 function openDetailModal(pizza) {
     $('#pizzaDetailModalLabel').text(pizza.name);
     $('#pizza-detail-image').attr("src", pizza.image);
@@ -240,7 +257,13 @@ function PizzasGetAll() {
         url: "/api/pizza",
         type: "GET",
         dataType: "json",
+        beforeSend: function () {
+           
+            openPizzaLoader();
+        },
         success: function (data) {
+         
+            closePizzaLoader();
             generatePizzaCards(data);
         },
         error: function () {

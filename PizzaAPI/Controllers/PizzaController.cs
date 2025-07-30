@@ -55,7 +55,7 @@ namespace PizzaSales.PizzaAPI.Controllers
                     return Problem(detail: "Пицца не найдена");
                 }
 
-                return new JsonResult(pizza);
+                return Ok(pizza);
             }
             catch (Exception ex)
             {
