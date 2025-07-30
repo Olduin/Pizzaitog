@@ -1,15 +1,20 @@
 ﻿const uri = "/api/pizza/";
 function generatePizzaCards(pizzas) {
-    const container = $(".Page-container");
-    const containerFlex = $(".my-flex-container");
-    const AddButtonHtml = `<a class="button-link-Create">Добавить пиццу</a>`;
-    container.empty();
+    const pageContainer = $(".Page-container");
+    pageContainer.empty();
+    const AddCardsHtml = `
+        <a class="button-link-Create">Добавить пиццу</a>
+        <div class="my-flex-container"></div>
+    `;
+    pageContainer.append(AddCardsHtml);
+    const flexContainer = $(".my-flex-container");       
+    //flexContainer.empty();
 
     pizzas.forEach(pizza => {
         const cardHtml = `
-                <div class="flex-card">
+                <div class="flex-card" id="card1" data-id="card-${pizza.id}">
                     <img class="card-img" data-id="${pizza.id}" src="${pizza.image}">
-                    <a class="card-name" data-id="${pizza.id}" >${pizza.name}</a>
+                    <a class="card-name" id="card-name" data-id="${pizza.id}" >${pizza.name}</a>
                     <div class="card-ingredients">${pizza.ingredients}</div>
                     <div class="card-footer">
                         <div class="card-price">${pizza.price} &#8381;</div>
@@ -20,11 +25,10 @@ function generatePizzaCards(pizzas) {
                     </div>
                 </div>
             `;
-        containerFlex.append(cardHtml);
+        flexContainer.append(cardHtml);
     });
-
-    container.append(AddButtonHtml);
-    container.append(containerFlex);
+    
+    pageContainer.append(flexContainer);
 
     $('.card-img').on('click', function () {
         var pizzaId = ($(this).data('id'));
@@ -79,6 +83,7 @@ function generatePizzaCards(pizzas) {
 
     $('.button-link-Delete').on('click', function (e) {
         var pizzaId = $(this).data('id');
+        var elemToDel = this.closest('.flex-card');
         let IsDelete = confirm("Удалить элемент?");
         if (IsDelete == true) {
             $.ajax({
@@ -86,7 +91,8 @@ function generatePizzaCards(pizzas) {
                 type: "DELETE",
                 data: { id: pizzaId },
                 success: function (data) {
-                    location.reload(true);
+                    elemToDel.remove();                    
+                                        
                 },
             })
         }
@@ -107,10 +113,11 @@ $.ajax({
 
 function generatePizzaDetail(pizza) {
     const container = $(".Page-container");
-    container.empty();
+    const flexContainer = $(".my-flex-container")
+    container.empty();    
 
     const cardHtml = `
-            <div class="pizza-details-card">
+            <div class="pizza-details-card" data-id="${pizza.id}">
                 <button id="back-to-list" class="btn btn-outline-primary">
                     &#8592; Назад
                 </button>
@@ -128,18 +135,18 @@ function generatePizzaDetail(pizza) {
     container.append(cardHtml);
 
     $('#back-to-list').on('click', function () {
-        //$.ajax({
-        //    url: uri,
-        //    type: "GET",
-        //    dataType: "json",
-        //    success: function (data) {
-        //        generatePizzaCards(data);
-        //    },
-        //    error: function () {
-        //        console.error("Ошибка при получении списка пицц");
-        //    }
-        //});
-        location.reload();
+        $.ajax({
+            url: "/api/pizza",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                generatePizzaCards(data);
+            },
+            error: function () {
+                console.error("Ошибка при получении списка пицц");
+            }
+        });
+        //location.reload();
     });
 };
 
@@ -150,11 +157,24 @@ $('#pizza-form').on('submit', function (e) {
         name: $('#pizza-name').val(),
         image: $('#pizza-image').val(),
         ingredients: $('#pizza-ingredients').val(),
-        price: parseFloat($('#pizza-price').val()),
-        weight: parseFloat($('#pizza-weight').val())
+        price: parseInt($('#pizza-price').val()),
+        weight: parseInt($('#pizza-weight').val())
     };
 
     const id = $('#pizza-id').val();
+
+    //<div class="flex-card" >
+    //    <img class="card-img" data-id="${pizza.id}" src="${pizza.image}">
+    //        <a class="card-name" data-id="${pizza.id}" >${pizza.name}</a>
+    //        <div class="card-ingredients">${pizza.ingredients}</div>
+    //        <div class="card-footer">
+    //            <div class="card-price">${pizza.price} &#8381;</div>
+    //            <div class="card-weight">${pizza.weight} гр.</div>
+    //            <a href="#" class="button-link">В корзину</a>
+    //            <a data-id="${pizza.id}" class="button-link-Edit">Изменить</a>
+    //            <a data-id="${pizza.id}" class="button-link-Delete">Удалить</a>
+    //        </div>
+    //</div>
 
     if (id) {
         $.ajax({
@@ -163,8 +183,21 @@ $('#pizza-form').on('submit', function (e) {
             contentType: "application/json",
             data: JSON.stringify({ id, ...pizza }),
             success: function () {
-                closeEditModal();
-                location.reload();
+                closeEditModal();                             
+                //location.reload();
+                $.ajax({
+                    url: "/api/pizza",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        generatePizzaCards(data);
+                    },
+                    error: function () {
+                        console.error("Ошибка при получении списка пицц");
+                    }
+                });
+
+
             },
             error: () => alert("Ошибка при обновлении пиццы")
         });
@@ -176,7 +209,19 @@ $('#pizza-form').on('submit', function (e) {
             data: JSON.stringify(pizza),
             success: function () {
                 closeEditModal();
-                location.reload();
+
+                //location.reload();
+                $.ajax({
+                    url: "/api/pizza",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        generatePizzaCards(data);
+                    },
+                    error: function () {
+                        console.error("Ошибка при получении списка пицц");
+                    }
+                });
             },
             error: () => alert("Ошибка при создании пиццы")
         });
