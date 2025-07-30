@@ -99,18 +99,6 @@ function generatePizzaCards(pizzas) {
     })
 };
 
-$.ajax({
-    url: "/api/pizza",
-    type: "GET",
-    dataType: "json",
-    success: function (data) {
-        generatePizzaCards(data);
-    },
-    error: function () {
-        console.error("Ошибка при получении списка пицц");
-    }
-});
-
 function generatePizzaDetail(pizza) {
     const container = $(".Page-container");
     const flexContainer = $(".my-flex-container")
@@ -146,6 +134,7 @@ function generatePizzaDetail(pizza) {
                 console.error("Ошибка при получении списка пицц");
             }
         });
+        PizzasGetAll();
         //location.reload();
     });
 };
@@ -163,19 +152,6 @@ $('#pizza-form').on('submit', function (e) {
 
     const id = $('#pizza-id').val();
 
-    //<div class="flex-card" >
-    //    <img class="card-img" data-id="${pizza.id}" src="${pizza.image}">
-    //        <a class="card-name" data-id="${pizza.id}" >${pizza.name}</a>
-    //        <div class="card-ingredients">${pizza.ingredients}</div>
-    //        <div class="card-footer">
-    //            <div class="card-price">${pizza.price} &#8381;</div>
-    //            <div class="card-weight">${pizza.weight} гр.</div>
-    //            <a href="#" class="button-link">В корзину</a>
-    //            <a data-id="${pizza.id}" class="button-link-Edit">Изменить</a>
-    //            <a data-id="${pizza.id}" class="button-link-Delete">Удалить</a>
-    //        </div>
-    //</div>
-
     if (id) {
         $.ajax({
             url: uri + id,
@@ -183,21 +159,8 @@ $('#pizza-form').on('submit', function (e) {
             contentType: "application/json",
             data: JSON.stringify({ id, ...pizza }),
             success: function () {
-                closeEditModal();                             
-                //location.reload();
-                $.ajax({
-                    url: "/api/pizza",
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        generatePizzaCards(data);
-                    },
-                    error: function () {
-                        console.error("Ошибка при получении списка пицц");
-                    }
-                });
-
-
+                closeEditModal();                        
+                PizzasGetAll();
             },
             error: () => alert("Ошибка при обновлении пиццы")
         });
@@ -209,19 +172,7 @@ $('#pizza-form').on('submit', function (e) {
             data: JSON.stringify(pizza),
             success: function () {
                 closeEditModal();
-
-                //location.reload();
-                $.ajax({
-                    url: "/api/pizza",
-                    type: "GET",
-                    dataType: "json",
-                    success: function (data) {
-                        generatePizzaCards(data);
-                    },
-                    error: function () {
-                        console.error("Ошибка при получении списка пицц");
-                    }
-                });
+                PizzasGetAll();                
             },
             error: () => alert("Ошибка при создании пиццы")
         });
@@ -280,3 +231,20 @@ function closeDetailModal() {
     pizzaEditModal.hide();
 }
 
+(function () {
+    PizzasGetAll();
+})();
+
+function PizzasGetAll() {
+    $.ajax({
+        url: "/api/pizza",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            generatePizzaCards(data);
+        },
+        error: function () {
+            console.error("Ошибка при получении списка пицц");
+        }
+    });
+}
