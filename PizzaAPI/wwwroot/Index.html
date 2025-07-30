@@ -6,19 +6,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/site.css" asp-append-version="true" />
-
 </head>
 <body>
 
     <div class="Page-container"></div>
-    <div class="my-flex-container"></div>
+    <!--<div class="my-flex-container"></div>-->
 
     <!-- Модальное окно -->
-    <div class="modal fade" id="pizzaModal" tabindex="-1" aria-labelledby="pizzaModalLabel" aria-hidden="true">
+    <div class="modal fade" id="pizzaEditModal" tabindex="-1" aria-labelledby="pizzaEditModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content rounded-4 shadow">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="pizzaModalLabel">Добавить пиццу</h5>
+                    <h5 class="modal-title" id="pizzaEditModalLabel">Добавить пиццу</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
                 </div>
                 <form id="pizza-form">
@@ -50,6 +49,31 @@
                         <button type="submit" class="btn btn-success">Сохранить</button>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="pizzaDetailModal" tabindex="-1" aria-labelledby="pizzaDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-4 shadow">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pizzaDetailModalLabel">Карточка товара</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                </div>              
+                <div class="modal-body">
+                    <div class="detail-modal">                                         
+                        <img class="card-img" id="pizza-detail-image">
+                        <h4 class="pizza-title" id="pizza-detail-name"></h4>
+                        <div class="pizza-ingredient" id="pizza-detail-ingredient"> </div>
+                        <div class="card-footer">
+                            <div class="card-price" id="pizza-detail-price"> &#8381;</div>
+                            <div class="card-weight" id="pizza-detail-weight"> гр.</div>                            
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">               
+                    <a href="#" class="button-link">В корзину</a>
+                </div>           
             </div>
         </div>
     </div>

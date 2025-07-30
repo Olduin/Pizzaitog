@@ -1,15 +1,20 @@
 ﻿const uri = "/api/pizza/";
 function generatePizzaCards(pizzas) {
-    const container = $(".Page-container");
-    const containerFlex = $(".my-flex-container");
-    const AddButtonHtml = `<a class="button-link-Create">Добавить пиццу</a>`;
-    container.empty();
+    const pageContainer = $(".Page-container");
+    pageContainer.empty();
+    const AddCardsHtml = `
+        <a class="button-link-Create">Добавить пиццу</a>
+        <div class="my-flex-container"></div>
+    `;
+    pageContainer.append(AddCardsHtml);
+    const flexContainer = $(".my-flex-container");       
+    //flexContainer.empty();
 
     pizzas.forEach(pizza => {
         const cardHtml = `
-                <div class="flex-card">
+                <div class="flex-card" id="card1" data-id="card-${pizza.id}">
                     <img class="card-img" data-id="${pizza.id}" src="${pizza.image}">
-                    <a class="card-name" href="Details/${pizza.id}" >${pizza.name}</a>
+                    <a class="card-name" id="card-name" data-id="${pizza.id}" >${pizza.name}</a>
                     <div class="card-ingredients">${pizza.ingredients}</div>
                     <div class="card-footer">
                         <div class="card-price">${pizza.price} &#8381;</div>
@@ -20,11 +25,10 @@ function generatePizzaCards(pizzas) {
                     </div>
                 </div>
             `;
-        containerFlex.append(cardHtml);
-
+        flexContainer.append(cardHtml);
     });
-    container.append(AddButtonHtml);
-    container.append(containerFlex);
+    
+    pageContainer.append(flexContainer);
 
     $('.card-img').on('click', function () {
         var pizzaId = ($(this).data('id'));
@@ -42,8 +46,24 @@ function generatePizzaCards(pizzas) {
         })
     });
 
+    $('.card-name').on('click', function () {
+        var pizzaId = ($(this).data('id'));
+        $.ajax({
+            url: uri + pizzaId,
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                openDetailModal(data);
+
+            },
+            error: function () {
+                console.error("Ошибка при получении одной пиццы");
+            }
+        })
+    });
+
     $('.button-link-Create').on('click', function () {
-        openModal();
+        openEditModal();
     });
 
     $('.button-link-Edit').on('click', function () {
@@ -53,7 +73,7 @@ function generatePizzaCards(pizzas) {
             type: "GET",
             dataType: "json",
             success: function (data) {
-                openModal(data);
+                openEditModal(data);
             },
             error: function () {
                 alert("Ошибка при загрузке пиццы");
@@ -63,6 +83,7 @@ function generatePizzaCards(pizzas) {
 
     $('.button-link-Delete').on('click', function (e) {
         var pizzaId = $(this).data('id');
+        var elemToDel = this.closest('.flex-card');
         let IsDelete = confirm("Удалить элемент?");
         if (IsDelete == true) {
             $.ajax({
@@ -70,47 +91,21 @@ function generatePizzaCards(pizzas) {
                 type: "DELETE",
                 data: { id: pizzaId },
                 success: function (data) {
-                    location.reload(true);
+                    elemToDel.remove();                    
+                                        
                 },
-
             })
         }
     })
-
-    $('.button-link-Edit').on('click', function () {
-        var pizzaId = $(this).data('id');
-        $.ajax({
-            url: uri + pizzaId,
-            type: "PUT",
-            dataType: "json",
-            success: function (data) {
-                generatePizzaEdit(data);
-            },
-            error: function () {
-                console.error("Ошибка при получении одной пиццы");
-            }
-        })
-    });
 };
-
-$.ajax({
-    url: "/api/pizza",
-    type: "GET",
-    dataType: "json",
-    success: function (data) {
-        generatePizzaCards(data);
-    },
-    error: function () {
-        console.error("Ошибка при получении списка пицц");
-    }
-});
 
 function generatePizzaDetail(pizza) {
     const container = $(".Page-container");
-    container.empty();
+    const flexContainer = $(".my-flex-container")
+    container.empty();    
 
     const cardHtml = `
-            <div class="pizza-details-card">
+            <div class="pizza-details-card" data-id="${pizza.id}">
                 <button id="back-to-list" class="btn btn-outline-primary">
                     &#8592; Назад
                 </button>
@@ -128,18 +123,19 @@ function generatePizzaDetail(pizza) {
     container.append(cardHtml);
 
     $('#back-to-list').on('click', function () {
-        //$.ajax({
-        //    url: uri,
-        //    type: "GET",
-        //    dataType: "json",
-        //    success: function (data) {
-        //        generatePizzaCards(data);
-        //    },
-        //    error: function () {
-        //        console.error("Ошибка при получении списка пицц");
-        //    }
-        //});
-        location.reload();
+        $.ajax({
+            url: "/api/pizza",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                generatePizzaCards(data);
+            },
+            error: function () {
+                console.error("Ошибка при получении списка пицц");
+            }
+        });
+        PizzasGetAll();
+        //location.reload();
     });
 };
 
@@ -150,46 +146,45 @@ $('#pizza-form').on('submit', function (e) {
         name: $('#pizza-name').val(),
         image: $('#pizza-image').val(),
         ingredients: $('#pizza-ingredients').val(),
-        price: parseFloat($('#pizza-price').val()),
-        weight: parseFloat($('#pizza-weight').val())
+        price: parseInt($('#pizza-price').val()),
+        weight: parseInt($('#pizza-weight').val())
     };
 
     const id = $('#pizza-id').val();
 
     if (id) {
-        // редактирование
         $.ajax({
             url: uri + id,
             type: "PUT",
             contentType: "application/json",
             data: JSON.stringify({ id, ...pizza }),
             success: function () {
-                closeModal();
-                location.reload();
+                closeEditModal();                        
+                PizzasGetAll();
             },
             error: () => alert("Ошибка при обновлении пиццы")
         });
     } else {
-        // создание
         $.ajax({
             url: uri,
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(pizza),
             success: function () {
-                closeModal();
-                location.reload();
+                closeEditModal();
+                PizzasGetAll();                
             },
             error: () => alert("Ошибка при создании пиццы")
         });
     }
 });
 
-const pizzaModal = new bootstrap.Modal(document.getElementById('pizzaModal'));
+const pizzaEditModal = new bootstrap.Modal(document.getElementById('pizzaEditModal'));
+const pizzaDetailModal = new bootstrap.Modal(document.getElementById('pizzaDetailModal'));
 
-function openModal(pizza = null) {
+function openEditModal(pizza = null) {
     if (pizza) {
-        $('#pizzaModalLabel').text("Редактировать пиццу");
+        $('#pizzaEditModalLabel').text("Редактировать пиццу");
         $('#pizza-id').val(pizza.id);
         $('#pizza-name').val(pizza.name);
         $('#pizza-image').val(pizza.image);
@@ -197,14 +192,59 @@ function openModal(pizza = null) {
         $('#pizza-price').val(pizza.price);
         $('#pizza-weight').val(pizza.weight);
     } else {
-        $('#pizzaModalLabel').text("Добавить пиццу");
+        $('#pizzaEditModalLabel').text("Добавить пиццу");
         $('#pizza-form')[0].reset();
         $('#pizza-id').val('');
     }
-    pizzaModal.show();
+    pizzaEditModal.show();
 }
 
-function closeModal() {
-    pizzaModal.hide();
+function closeEditModal() {
+    pizzaEditModal.hide();
 }
 
+function openDetailModal(pizza) {
+    $('#pizzaDetailModalLabel').text(pizza.name);
+    $('#pizza-detail-image').attr("src", pizza.image);
+    $('#pizza-detail-name').text(pizza.name);
+    $('#pizza-detail-ingredient').text(pizza.ingredients);
+    $('#pizza-detail-weight').text(pizza.weight + ' гр.');  
+    $('#pizza-detail-price').text(pizza.price + ' ₽');
+
+    //const container = $(".detail-modal");
+    //container.empty();
+    //const cardHtml = `                           
+    //            <img class="card-img" src="${pizza.image}">
+    //            <h4 class="pizza-title">${pizza.name}</h4>
+    //            <div class="pizza-ingredient"> ${pizza.ingredients} </div>
+    //            <div class="card-footer">
+    //                <div class="card-price">${pizza.price} &#8381;</div>
+    //                <div class="card-weight">${pizza.weight} гр.</div>
+    //            </div>         
+    //    `;
+
+    //container.append(cardHtml);
+    pizzaDetailModal.show();
+}
+
+function closeDetailModal() {
+    pizzaEditModal.hide();
+}
+
+(function () {
+    PizzasGetAll();
+})();
+
+function PizzasGetAll() {
+    $.ajax({
+        url: "/api/pizza",
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+            generatePizzaCards(data);
+        },
+        error: function () {
+            console.error("Ошибка при получении списка пицц");
+        }
+    });
+}

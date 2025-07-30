@@ -66,22 +66,20 @@ namespace PizzaSales.PizzaAPI.Controllers
                 
         [HttpPost]
         public IActionResult PizzaCreate(PizzaModel pizza)
-        {                
-            _repository.PizzaAdd(pizza);
-            _repository.Save();
-            return Ok(pizza);
-
-            //if (pizza == null)
-            //{
-            //    //Добавление
-            //    var _newItem = new PizzaModel(pizza);
-            //    _repository.PizzaAdd(_newItem);
-            //}
-            //_repository.Save();
-            //return Ok(pizza);
-            ////return RedirectToAction("Index");
-
-            //return CreatedAtAction(nameof(pizza), new { id = pizza.Id }, pizza);
+        {
+            _logger.LogInformation("Запрошено создание пиццы");
+            try
+            {
+                _repository.PizzaAdd(pizza);
+                _repository.Save();
+                return Ok(pizza);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Ошибка при создании пиццы");
+                return Problem(detail: "Произошла ошибка на сервере");
+            }            
+                       
         }
 
         [HttpPut("{id}")]
