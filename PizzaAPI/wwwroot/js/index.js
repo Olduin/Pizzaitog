@@ -24,94 +24,93 @@ function generatePizzaCards(pizzas) {
                 </div>
             `;
         flexContainer.append(cardHtml);
-    });
-    
-    pageContainer.append(flexContainer);
+    });    
+    pageContainer.append(flexContainer);   
+};
 
-    $('.card-img').on('click', function () {
-        var pizzaId = ($(this).data('id'));
-        $.ajax({
-            url: uri + pizzaId,
-            type: "GET",
-            dataType: "json",
-            beforeSend: function () {
-                openPizzaLoader();
-            },
-            success: function (data) {
-                closePizzaLoader();
-                generatePizzaDetail(data);
+//$(document).on('click', '.button-link-Delete', function () { });
+$(document).on('click', '.card-name', function () {
+    var pizzaId = ($(this).data('id'));
+    $.ajax({
+        url: uri + pizzaId,
+        type: "GET",
+        dataType: "json",
+        beforeSend: function () {
+            openPizzaLoader();
+        },
+        success: function (data) {
+            closePizzaLoader();
+            openDetailModal(data);
 
-            },
-            error: function () {
-                console.error("Ошибка при получении одной пиццы");
-            }
-        })
-    });
-
-    $('.card-name').on('click', function () {
-        var pizzaId = ($(this).data('id'));
-        $.ajax({
-            url: uri + pizzaId,
-            type: "GET",
-            dataType: "json",
-            beforeSend: function () {
-                openPizzaLoader();
-            },
-            success: function (data) {
-                closePizzaLoader();
-                openDetailModal(data);
-
-            },
-            error: function () {
-                console.error("Ошибка при получении одной пиццы");
-            }
-        })
-    });
-
-    $('.button-link-Create').on('click', function () {
-        openEditModal();
-    });
-
-    $('.button-link-Edit').on('click', function () {
-        const pizzaId = $(this).data('id');
-        $.ajax({
-            url: uri + pizzaId,
-            type: "GET",
-            dataType: "json",
-            beforeSend: function () {
-                openPizzaLoader();
-            },
-            success: function (data) {
-                closePizzaLoader();
-                openEditModal(data);
-            },
-            error: function () {
-                alert("Ошибка при загрузке пиццы");
-            }
-        });
-    });
-
-    $('.button-link-Delete').on('click', function (e) {
-        var pizzaId = $(this).data('id');
-        var elemToDel = this.closest('.flex-card');
-        let IsDelete = confirm("Удалить элемент?");
-        if (IsDelete == true) {
-            $.ajax({
-                url: uri + pizzaId,
-                type: "DELETE",
-                data: { id: pizzaId },
-                beforeSend: function () {
-                    openPizzaLoader();
-                },
-                success: function (data) {
-                    closePizzaLoader();
-                    elemToDel.remove();                    
-                                        
-                },
-            })
+        },
+        error: function () {
+            console.error("Ошибка при получении одной пиццы");
         }
     })
-};
+});
+
+$(document).on('click', '.button-link-Edit', function () {
+    const pizzaId = $(this).data('id');
+    $.ajax({
+        url: uri + pizzaId,
+        type: "GET",
+        dataType: "json",
+        beforeSend: function () {
+            openPizzaLoader();
+        },
+        success: function (data) {
+            closePizzaLoader();
+            openEditModal(data);
+        },
+        error: function () {
+            alert("Ошибка при загрузке пиццы");
+        }
+    });
+});
+
+$(document).on('click', '.button-link-Create', function () {
+    openEditModal();
+});
+
+$(document).on('click', '.button-link-Delete', function (e) {
+    var pizzaId = $(this).data('id');
+    var elemToDel = this.closest('.flex-card');
+    let IsDelete = confirm("Удалить элемент?");
+    if (IsDelete == true) {
+        $.ajax({
+            url: uri + pizzaId,
+            type: "DELETE",
+            data: { id: pizzaId },
+            beforeSend: function () {
+                openPizzaLoader();
+            },
+            success: function (data) {
+                closePizzaLoader();
+                elemToDel.remove();
+
+            },
+        })
+    }
+});
+$(document).on('click', '.card-img', function () {
+    var pizzaId = ($(this).data('id'));
+    $.ajax({
+        url: uri + pizzaId,
+        type: "GET",
+        dataType: "json",
+        beforeSend: function () {
+            openPizzaLoader();
+        },
+        success: function (data) {
+            closePizzaLoader();
+            generatePizzaDetail(data);
+
+        },
+        error: function () {
+            console.error("Ошибка при получении одной пиццы");
+        }
+    })
+})
 
 const pizzaEditModal = new bootstrap.Modal(document.getElementById('pizzaEditModal'));
 const pizzaDetailModal = new bootstrap.Modal(document.getElementById('pizzaDetailModal'));
@@ -194,6 +193,9 @@ $('#pizza-form').on('submit', function (e) {
 });
 
 function generatePizzaDetail(pizza) {
+    if (pizza.image == null) {
+        pizza.image = "/images/cagliari_1.jpg"
+    }
     const container = $(".Page-container");
     const flexContainer = $(".my-flex-container")
     container.empty();
@@ -215,11 +217,15 @@ function generatePizzaDetail(pizza) {
 
     container.append(cardHtml);
 
-    $('#back-to-list').on('click', function () {   
-        PizzasGetAll();
-        //location.reload();
-    });
+    //$('#back-to-list').on('click', function () {   
+    //    PizzasGetAll();
+    //    //location.reload();
+    //});
 };
+
+$(document).on('click', '#back-to-list', function () {
+    PizzasGetAll();
+});
 function openDetailModal(pizza) {
     $('#pizzaDetailModalLabel').text(pizza.name);
     $('#pizza-detail-image').attr("src", pizza.image);
@@ -271,3 +277,11 @@ function PizzasGetAll() {
         }
     });
 }
+
+//var imagefile;
+
+//$('inpute[type=file]').on('change', function () {
+//    imagefile = this.files;
+//})
+
+

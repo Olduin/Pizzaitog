@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using PizzaSales.Infrastructure;
 using Domain;
+using System.Threading.Tasks;
+using System.Net;
 
 
 namespace PizzaSales.PizzaAPI.Controllers
@@ -12,11 +14,13 @@ namespace PizzaSales.PizzaAPI.Controllers
     {
         private readonly IRepository<PizzaModel> _repository;
         private readonly ILogger _logger;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public PizzaController(ILogger<PizzaController> logger, IRepository<PizzaModel> repository)
+        public PizzaController(ILogger<PizzaController> logger, IRepository<PizzaModel> repository, IWebHostEnvironment appenvironment)
         {
             _logger = logger;
             _repository = repository;
+            _webHostEnvironment = appenvironment;
         }
      
         [HttpGet]
@@ -65,11 +69,20 @@ namespace PizzaSales.PizzaAPI.Controllers
         }
                 
         [HttpPost]
-        public IActionResult PizzaCreate(PizzaModel pizza)
+        public async Task<IActionResult> PizzaCreate(PizzaModel pizza)
         {
+            string path = "/images/" + pizza.Image;
             _logger.LogInformation("Запрошено создание пиццы");
             try
             {
+                //using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create))
+                //{
+                //    pizza.Image.CopyTo(fileStream);
+                //}
+                //var name = Request.Form["name"];
+
+                string filename = System.IO.Path.GetFileName(pizza.Image);
+                
                 _repository.PizzaAdd(pizza);
                 _repository.Save();
                 return Ok(pizza);
