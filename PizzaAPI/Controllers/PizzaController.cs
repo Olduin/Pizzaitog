@@ -104,27 +104,60 @@ namespace PizzaSales.PizzaAPI.Controllers
                        
         }
 
+        //[HttpPut("{id}")]
+        //public IActionResult PizzaUpdate([FromForm] PizzaDTO pizza) 
+        //{
+        //    if (pizza.Id.HasValue)
+        //    {
+        //        //Обновление
+        //        var _pizza = _repository.PizzaGetById(pizza.Id.Value);
+        //        if (_pizza != null)
+        //        {    
+        //            _pizza.Name = pizza.Name;
+        //            _pizza.Ingredients = pizza.Ingredients;
+        //            _pizza.Image = "/images/" + pizza.Image.FileName;
+        //            _pizza.Weight = pizza.Weight;
+        //            _pizza.Price = pizza.Price;
+
+        //            _repository.PizzaUpdate(_pizza);
+        //            _repository.Save();                   
+        //        }
+        //    }
+        //    return Ok(pizza);
+
+        //}
+
         [HttpPut("{id}")]
-        public IActionResult PizzaUpdate([FromForm] PizzaDTO pizza) 
+        public IActionResult PizzaUpdate([FromForm] PizzaDTO pizza)
         {
             if (pizza.Id.HasValue)
             {
-                //Обновление
                 var _pizza = _repository.PizzaGetById(pizza.Id.Value);
                 if (_pizza != null)
-                {    
+                {
                     _pizza.Name = pizza.Name;
                     _pizza.Ingredients = pizza.Ingredients;
-                    _pizza.Image = "/images/" + pizza.Image.FileName;
-                    _pizza.Weight = pizza.Weight;
                     _pizza.Price = pizza.Price;
+                    _pizza.Weight = pizza.Weight;
+
+                    if (pizza.Image != null)
+                    {
+                        _pizza.Image = "/images/" + pizza.Image.FileName;
+                        var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, _pizza.Image.TrimStart('/'));
+                        using (var fileStream = new FileStream(imagePath, FileMode.Create))
+                        {
+                            pizza.Image.CopyTo(fileStream);
+                        }
+                    }
 
                     _repository.PizzaUpdate(_pizza);
-                    _repository.Save();                   
+                    _repository.Save();
+
+                    return Ok(pizza);
                 }
             }
-            return Ok(pizza);
 
+            return NotFound();
         }
 
         // DELETE api/pizzas/5

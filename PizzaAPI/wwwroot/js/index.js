@@ -147,69 +147,103 @@ function closeEditModal() {
     pizzaEditModal.hide();
 }
 
+//$('#pizza-form').on('submit', function (e) {
+//    e.preventDefault();
+
+
+//    const pizza = {
+//        name: $('#pizza-name').val(),
+//        image: $('#pizza-image').val(),
+//        ingredients: $('#pizza-ingredients').val(),
+//        price: parseInt($('#pizza-price').val()),
+//        weight: parseInt($('#pizza-weight').val())
+//    };
+
+
+//    pizzaData = new FormData($('pizza-form')[0]);
+//    //pizzaData.append("Id", parseInt($("#pizza-id").val()));
+//    pizzaData.append("Name", $("#pizza-name").val());
+//    pizzaData.append("Image", fileImage.files[0]);
+//    pizzaData.append("Ingredients", $("#pizza-ingredients").val());
+//    pizzaData.append("Weight", parseInt($('#pizza-weight').val()));
+//    pizzaData.append("Price", parseInt($('#pizza-weight').val()));
+
+//    const id = $('#pizza-id').val();
+
+//    if (id) {
+//        $.ajax({
+//            url: uri + id,
+//            type: "PUT",
+//            contentType: false,
+//            processData: false,
+//            data: { id, pizzaData },
+//            dataType: 'JSON',
+//            //data: JSON.stringify({ id, ...pizza }),
+//            beforeSend: function () {
+//                openPizzaLoader();
+//            },
+//            success: function () {
+//                closePizzaLoader();
+//                closeEditModal();
+//                PizzasGetAll();
+//            },
+//            error: () => alert("Ошибка при обновлении пиццы")
+//        });
+//    } else {
+//        $.ajax({
+//            url: uri,
+//            type: "POST",
+//            // data: JSON.stringify(pizza),
+//            contentType: false,
+//            processData: false,
+//            data: pizzaData,
+//            dataType: 'JSON',
+//            beforeSend: function () {
+//                openPizzaLoader();
+//            },
+//            success: function () {
+//                closePizzaLoader();
+//                closeEditModal();
+//                PizzasGetAll();
+//            },
+//            error: () => alert("Ошибка при создании пиццы")
+
+//        });
+//    }
+//});
+
 $('#pizza-form').on('submit', function (e) {
     e.preventDefault();
-    
-
-    const pizza = {
-        name: $('#pizza-name').val(),
-        image: $('#pizza-image').val(),
-        ingredients: $('#pizza-ingredients').val(),
-        price: parseInt($('#pizza-price').val()),
-        weight: parseInt($('#pizza-weight').val())
-    };
-   
-    
-    pizzaData = new FormData($('pizza-form')[0]);
-    //pizzaData.append("Id", parseInt($("#pizza-id").val()));
-    pizzaData.append("Name", $("#pizza-name").val());
-    pizzaData.append("Image", fileImage.files[0]);
-    pizzaData.append("Ingredients", $("#pizza-ingredients").val());
-    pizzaData.append("Weight", parseInt($('#pizza-weight').val()));
-    pizzaData.append("Price", parseInt($('#pizza-weight').val()));
 
     const id = $('#pizza-id').val();
+    const isEdit = !!id;
 
-    if (id) {
-        $.ajax({
-            url: uri + id,
-            type: "PUT",
-            contentType: false,
-            processData: false,
-            data: { id, pizzaData },
-            dataType: 'JSON',
-            //data: JSON.stringify({ id, ...pizza }),
-            beforeSend: function () {
-                openPizzaLoader();
-            },
-            success: function () {
-                closePizzaLoader();
-                closeEditModal();
-                PizzasGetAll();
-            },
-            error: () => alert("Ошибка при обновлении пиццы")
-        });
-    } else {
-        $.ajax({
-            url: uri,
-            type: "POST",            
-            // data: JSON.stringify(pizza),
-            contentType: false,
-            processData: false,
-            data: pizzaData,
-            dataType: 'JSON',
-            beforeSend: function () {
-                openPizzaLoader();
-            },
-            success: function () {
-                closePizzaLoader();
-                closeEditModal();
-                PizzasGetAll();
-            },
-            error: () => alert("Ошибка при создании пиццы")
-            
-        });
+    const form = $('#pizza-form')[0];
+    const formData = new FormData(form);
+
+    if (isEdit) {
+        formData.append("Id", id);
     }
+
+    const method = isEdit ? "PUT" : "POST";
+    const url = isEdit ? uri + id : uri;
+
+    $.ajax({
+        url: url,
+        type: method,
+        contentType: false,
+        processData: false,
+        data: formData,
+        beforeSend: function () {
+            openPizzaLoader();
+        },
+        success: function () {
+            closePizzaLoader();
+            closeEditModal();
+            PizzasGetAll();
+        },
+        error: () => alert("Ошибка при сохранении пиццы")
+    });
 });
 
 function generatePizzaDetail(pizza) {
