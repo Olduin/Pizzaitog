@@ -1,4 +1,5 @@
-﻿const uri = "/api/pizza/";
+﻿
+const uri = "/api/pizza/";
 function generatePizzaCards(pizzas) {
     const pageContainer = $(".Page-container");
     pageContainer.empty();
@@ -115,13 +116,15 @@ $(document).on('click', '.card-img', function () {
 const pizzaEditModal = new bootstrap.Modal(document.getElementById('pizzaEditModal'));
 const pizzaDetailModal = new bootstrap.Modal(document.getElementById('pizzaDetailModal'));
 const mySpinner = document.getElementById('pizzaLoader');
+const fileImage = document.getElementById('pizza-image');
 
 function openEditModal(pizza = null) {
     if (pizza) {
         $('#pizzaEditModalLabel').text("Редактировать пиццу");
         $('#pizza-id').val(pizza.id);
         $('#pizza-name').val(pizza.name);
-        $('#pizza-image').val(pizza.image);
+        //fileImage.files[0];      
+        //$('#pizza-image').val(pizza.image);
         $('#pizza-ingredients').val(pizza.ingredients);
         $('#pizza-price').val(pizza.price);
         $('#pizza-weight').val(pizza.weight);
@@ -146,6 +149,7 @@ function closeEditModal() {
 
 $('#pizza-form').on('submit', function (e) {
     e.preventDefault();
+    
 
     const pizza = {
         name: $('#pizza-name').val(),
@@ -154,6 +158,15 @@ $('#pizza-form').on('submit', function (e) {
         price: parseInt($('#pizza-price').val()),
         weight: parseInt($('#pizza-weight').val())
     };
+   
+    
+    pizzaData = new FormData($('pizza-form')[0]);
+    //pizzaData.append("Id", parseInt($("#pizza-id").val()));
+    pizzaData.append("Name", $("#pizza-name").val());
+    pizzaData.append("Image", fileImage.files[0]);
+    pizzaData.append("Ingredients", $("#pizza-ingredients").val());
+    pizzaData.append("Weight", parseInt($('#pizza-weight').val()));
+    pizzaData.append("Price", parseInt($('#pizza-weight').val()));
 
     const id = $('#pizza-id').val();
 
@@ -161,8 +174,11 @@ $('#pizza-form').on('submit', function (e) {
         $.ajax({
             url: uri + id,
             type: "PUT",
-            contentType: "application/json",
-            data: JSON.stringify({ id, ...pizza }),
+            contentType: false,
+            processData: false,
+            data: { id, pizzaData },
+            dataType: 'JSON',
+            //data: JSON.stringify({ id, ...pizza }),
             beforeSend: function () {
                 openPizzaLoader();
             },
@@ -176,9 +192,12 @@ $('#pizza-form').on('submit', function (e) {
     } else {
         $.ajax({
             url: uri,
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(pizza),
+            type: "POST",            
+            // data: JSON.stringify(pizza),
+            contentType: false,
+            processData: false,
+            data: pizzaData,
+            dataType: 'JSON',
             beforeSend: function () {
                 openPizzaLoader();
             },
@@ -188,6 +207,7 @@ $('#pizza-form').on('submit', function (e) {
                 PizzasGetAll();
             },
             error: () => alert("Ошибка при создании пиццы")
+            
         });
     }
 });
@@ -277,11 +297,5 @@ function PizzasGetAll() {
         }
     });
 }
-
-//var imagefile;
-
-//$('inpute[type=file]').on('change', function () {
-//    imagefile = this.files;
-//})
 
 

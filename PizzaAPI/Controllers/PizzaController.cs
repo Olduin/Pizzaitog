@@ -4,6 +4,8 @@ using PizzaSales.Infrastructure;
 using Domain;
 using System.Threading.Tasks;
 using System.Net;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Domain.DTO;
 
 
 namespace PizzaSales.PizzaAPI.Controllers
@@ -29,6 +31,7 @@ namespace PizzaSales.PizzaAPI.Controllers
             _logger.LogInformation("Запрошен список всех пицц (JSON)");
             try
             {
+
                 var pizzas = _repository.PizzaGetAll();
                 if (pizzas == null)
                 {
@@ -69,21 +72,27 @@ namespace PizzaSales.PizzaAPI.Controllers
         }
                 
         [HttpPost]
-        public async Task<IActionResult> PizzaCreate(PizzaModel pizza)
+        public IActionResult PizzaCreate([FromForm] PizzaDTO pizza)
         {
-            string path = "/images/" + pizza.Image;
+            PizzaModel _pizza = new PizzaModel();
+            _pizza.Name = pizza.Name;
+            _pizza.Ingredients = pizza.Ingredients;
+            _pizza.Price = pizza.Price;
+            _pizza.Weight = pizza.Weight;
+
+             _pizza.Image = "/images/" + pizza.Image.FileName;
             _logger.LogInformation("Запрошено создание пиццы");
             try
             {
-                //using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + path, FileMode.Create))
-                //{
-                //    pizza.Image.CopyTo(fileStream);
-                //}
-                //var name = Request.Form["name"];
+                using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + _pizza.Image, FileMode.Create))
+                {
+                    pizza.Image.CopyTo(fileStream);
+                }
+                var name = Request.Form["name"];
 
-                string filename = System.IO.Path.GetFileName(pizza.Image);
-                
-                _repository.PizzaAdd(pizza);
+                //string filename = System.IO.Path.GetFileName(pizza.Image);
+
+                _repository.PizzaAdd(_pizza);
                 _repository.Save();
                 return Ok(pizza);
             }
@@ -96,21 +105,21 @@ namespace PizzaSales.PizzaAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult PizzaUpdate(PizzaModel pizza) 
+        public IActionResult PizzaUpdate([FromForm] PizzaDTO pizza) 
         {
             if (pizza.Id.HasValue)
             {
                 //Обновление
-                var _item = _repository.PizzaGetById(pizza.Id.Value);
-                if (_item != null)
-                {
-                    _item.Name = pizza.Name;
-                    _item.Ingredients = pizza.Ingredients;
-                    _item.Image = pizza.Image;
-                    _item.Weight = pizza.Weight;
-                    _item.Price = pizza.Price;
+                var _pizza = _repository.PizzaGetById(pizza.Id.Value);
+                if (_pizza != null)
+                {    
+                    _pizza.Name = pizza.Name;
+                    _pizza.Ingredients = pizza.Ingredients;
+                    _pizza.Image = "/images/" + pizza.Image.FileName;
+                    _pizza.Weight = pizza.Weight;
+                    _pizza.Price = pizza.Price;
 
-                    //_repository.PizzaUpdate(_item);
+                    _repository.PizzaUpdate(_pizza);
                     _repository.Save();                   
                 }
             }

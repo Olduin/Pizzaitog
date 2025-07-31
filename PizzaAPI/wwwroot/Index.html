@@ -26,15 +26,16 @@
                             <label for="pizza-name" class="form-label">Название</label>
                             <input type="text" class="form-control" id="pizza-name" placeholder=" " required>
                         </div>
-                        <!--<div class="mb-3">
-                            <label for="pizza-image" class="form-label">Изображение (URL)</label>
-                            <input type="file" accept="image/*" class="form-control" id="pizza-image" placeholder="\images\название.jpg" required>
-                            <a href="#" class="upload-files-button">Загрузить изображение</a>
-                        </div>-->
                         <div class="mb-3">
                             <label for="pizza-image" class="form-label">Изображение (URL)</label>
-                            <input type="text" class="form-control" id="pizza-image" placeholder="\images\название.jpg" required>
+                            <input type="file" accept="image/*" class="form-control" id="pizza-image" placeholder="\images\название.jpg" enctype="multipart/form-data" required>
+                            <!--<a href="#" class="upload-files-button">Загрузить изображение</a>-->
                         </div>
+
+                        <!--<div class="mb-3">
+                            <label for="pizza-image" class="form-label">Изображение (URL)</label>
+                            <input type="text" class="form-control" id="pizza-image" placeholder="\images\название.jpg" required>
+                        </div>-->
                         <div class="mb-3">
                             <label for="pizza-ingredients" class="form-label">Ингредиенты</label>
                             <input type="text" class="form-control" id="pizza-ingredients" placeholder=" " required>
@@ -80,11 +81,11 @@
         </div>
     </div>
 
-    <!--<div class="d-flex align-items-center justify-content-center min-vh-100">
+    <div class="d-flex align-items-center justify-content-center min-vh-100">
         <div id="pizzaLoader" class="spinner-border" role="status">
             <span class="sr-only"></span>
         </div>
-    </div>-->
+    </div>
 
         
 
