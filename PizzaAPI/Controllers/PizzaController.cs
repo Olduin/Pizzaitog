@@ -79,18 +79,20 @@ namespace PizzaSales.PizzaAPI.Controllers
             _pizza.Ingredients = pizza.Ingredients;
             _pizza.Price = pizza.Price;
             _pizza.Weight = pizza.Weight;
-
-             _pizza.Image = "/images/" + pizza.Image.FileName;
+                         
             _logger.LogInformation("Запрошено создание пиццы");
             try
             {
-                using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + _pizza.Image, FileMode.Create))
+                if (pizza.Image != null)
                 {
-                    pizza.Image.CopyTo(fileStream);
-                }
-                var name = Request.Form["name"];
+                    _pizza.Image = "/images/" + pizza.Image.FileName;
 
-                //string filename = System.IO.Path.GetFileName(pizza.Image);
+                    using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + _pizza.Image, FileMode.Create))
+                    {
+                        pizza.Image.CopyTo(fileStream);
+                    }
+                    var name = Request.Form["name"];
+                }             
 
                 _repository.PizzaAdd(_pizza);
                 _repository.Save();
@@ -100,32 +102,8 @@ namespace PizzaSales.PizzaAPI.Controllers
             {
                 _logger.LogError(ex, "Ошибка при создании пиццы");
                 return Problem(detail: "Произошла ошибка на сервере");
-            }            
-                       
+            }                          
         }
-
-        //[HttpPut("{id}")]
-        //public IActionResult PizzaUpdate([FromForm] PizzaDTO pizza) 
-        //{
-        //    if (pizza.Id.HasValue)
-        //    {
-        //        //Обновление
-        //        var _pizza = _repository.PizzaGetById(pizza.Id.Value);
-        //        if (_pizza != null)
-        //        {    
-        //            _pizza.Name = pizza.Name;
-        //            _pizza.Ingredients = pizza.Ingredients;
-        //            _pizza.Image = "/images/" + pizza.Image.FileName;
-        //            _pizza.Weight = pizza.Weight;
-        //            _pizza.Price = pizza.Price;
-
-        //            _repository.PizzaUpdate(_pizza);
-        //            _repository.Save();                   
-        //        }
-        //    }
-        //    return Ok(pizza);
-
-        //}
 
         [HttpPut("{id}")]
         public IActionResult PizzaUpdate([FromForm] PizzaDTO pizza)
@@ -141,8 +119,12 @@ namespace PizzaSales.PizzaAPI.Controllers
                     _pizza.Weight = pizza.Weight;
 
                     if (pizza.Image != null)
-                    {
+                    {                       
                         _pizza.Image = "/images/" + pizza.Image.FileName;
+                        if (pizza.Image.FileName != _pizza.Image)
+                        {
+
+                        }
                         var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, _pizza.Image.TrimStart('/'));
                         using (var fileStream = new FileStream(imagePath, FileMode.Create))
                         {
@@ -172,6 +154,5 @@ namespace PizzaSales.PizzaAPI.Controllers
             return NoContent();
 
         }
-
     }
 }

@@ -26,10 +26,12 @@
                             <label for="pizza-name" class="form-label">Название</label>
                             <input type="text" class="form-control" name="Name" id="pizza-name" placeholder=" " required>
                         </div>
+                        <!--<div id="drag-zone" class"mb-3"></div>-->
                         <div class="mb-3">
                             <label for="pizza-image" class="form-label">Изображение (URL)</label>
-                            <input type="file" name="image" accept="image/*" class="form-control" id="pizza-image" enctype="multipart/form-data" required>
+                            <input type="file" name="image" accept="image/*" class="form-control" id="pizza-image" enctype="multipart/form-data">
                             <!--<a href="#" class="upload-files-button">Загрузить изображение</a>-->
+                            <img class="edit-image" id="prevImage" src="#" alt="Image"></img>
                         </div>
 
                         <!--<div class="mb-3">
@@ -81,15 +83,17 @@
         </div>
     </div>
 
-    <div class="d-flex align-items-center justify-content-center min-vh-100">
+ 
+     <!--<div class="d-flex Loader align-items-center justify-content-center min-vh-100">
         <div id="pizzaLoader" class="spinner-border" role="status">
             <span class="sr-only"></span>
         </div>
+    </div>-->
+    <div class="preloader">
+        <div id="pizzaLoader" class="spinner-border" role="status"></div>
     </div>
 
-
-
-    <div id="overlay" style="display:none; position:fixed; top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);"></div>
+        <div id="overlay" style="display:none; position:fixed; top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);"></div>
 
 </body>
 </html>

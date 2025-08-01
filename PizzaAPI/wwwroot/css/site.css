@@ -325,6 +325,7 @@ label {
     color: #000;
 }
 
+
 .pizza-image {
     width: 100%;
     border-radius: 25px;
@@ -374,4 +375,39 @@ label {
     width: 5rem;
     height: 5rem;
     color: #80c142;
+}
+
+.edit-image {
+    margin-top: 5px;
+    border-radius: 10%;
+    width: 30%;
+    height: 30%;
+    cursor: pointer;
+}
+
+#drag-zone {
+    border: 2px dashed #ccc;
+    width: 400px;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    font-family: sans-serif;
+    color: #999;
+}
+
+    #drag-zone.highlight {
+        border-color: #007bff;
+    }
+
+.preloader {
+    /*фиксированное позиционирование*/
+    position: fixed;
+    
+    left: 47%;
+    top: 45%;
+    right: 0%;
+    bottom: 50%;
+
+    /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+    z-index: 1001;
 }
