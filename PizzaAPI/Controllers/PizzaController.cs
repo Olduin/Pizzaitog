@@ -121,15 +121,16 @@ namespace PizzaSales.PizzaAPI.Controllers
                     if (pizza.Image != null)
                     {                       
                         _pizza.Image = "/images/" + pizza.Image.FileName;
-                        if (pizza.Image.FileName != _pizza.Image)
-                        {
-
-                        }
+                       
                         var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, _pizza.Image.TrimStart('/'));
                         using (var fileStream = new FileStream(imagePath, FileMode.Create))
                         {
                             pizza.Image.CopyTo(fileStream);
                         }
+                    }
+                    else
+                    {
+                        _pizza.Image = null;
                     }
 
                     _repository.PizzaUpdate(_pizza);

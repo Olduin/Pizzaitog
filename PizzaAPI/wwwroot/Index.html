@@ -9,61 +9,69 @@
 </head>
 <body>
 
-    <div class="Page-container"></div>
+    <div class="Page-container" id="pageContainer"></div>
     <!--<div class="my-flex-container"></div>-->
     <!-- Модальные окна -->
-    <div class="modal fade" id="pizzaEditModal" tabindex="-1" aria-labelledby="pizzaEditModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content rounded-4 shadow">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="pizzaEditModalLabel">Добавить пиццу</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
-                </div>
-                <form id="pizza-form">
-                    <div class="modal-body">
-                        <input type="hidden" id="pizza-id">
-                        <div class="mb-3">
-                            <label for="pizza-name" class="form-label">Название</label>
-                            <input type="text" class="form-control" name="Name" id="pizza-name" placeholder=" " required>
-                        </div>
-                        <!--<div id="drag-zone" class"mb-3"></div>-->
-                        <!-- Drop-зона -->
-                        <div id="drop-zone" class="drop-zone text-center border border-success p-3 rounded" style="cursor: pointer;">
+    <div class="modals-window">
+        <div class="modal fade" id="pizzaEditModal" tabindex="-1" aria-labelledby="pizzaEditModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content rounded-4 shadow">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pizzaEditModalLabel">Добавить пиццу</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                    </div>
+                    <form id="pizza-form">
+                        <div class="modal-body">
+                            <input type="hidden" id="pizza-id">
+                            <div class="mb-3">
+                                <label for="pizza-name" class="form-label">Название</label>
+                                <input type="text" class="form-control" name="Name" id="pizza-name" placeholder=" " required>
+                            </div>
+                            <!--<div id="drag-zone" class"mb-3"></div>-->
+                            <!-- Drop-зона -->
+                            <!--<div id="drop-zone" class="drop-zone text-center border border-success p-3 rounded" style="cursor: pointer;">
                             <p class="text-muted m-0">Перетащите изображение сюда или нажмите для выбора</p>
                             <img id="preview-image" class="img-fluid mt-2 d-none" style="max-height: 150px;" />
-                        </div>
-                        <div class="mb-3">
-                            <label for="pizza-image" class="form-label">Изображение (URL)</label>
                             <input type="file" name="image" accept="image/*" class="form-control" id="pizza-image" enctype="multipart/form-data">
-                            <!--<a href="#" class="upload-files-button">Загрузить изображение</a>-->
+                            <label for="pizza-image" class="form-label">Изображение (URL)</label>
+                            <a href="#" class="upload-files-button">Загрузить изображение</a>
                             <img class="edit-image" id="prevImage" src="#" alt="Image"></img>
-                        </div>
+                        </div>-->
+                            <div class="mb-3">
+                                <label for="pizza-image" class="form-label">Изображение (URL)</label>
+                                <input type="file" name="image" accept="image/*" class="form-control" id="pizza-image" enctype="multipart/form-data">
+                                <button type="button" id="btn-reset" class="btn btn-success">Отчистить</button>
+                                <img class="edit-image" id="prevImage" src="#" alt="Image">
+                            </div>
 
-                        <!--<div class="mb-3">
-        <label for="pizza-image" class="form-label">Изображение (URL)</label>
-        <input type="text" class="form-control" id="pizza-image" placeholder="\images\название.jpg" required>
-    </div>-->
-                        <div class="mb-3">
-                            <label for="pizza-ingredients" class="form-label">Ингредиенты</label>
-                            <input type="text" class="form-control" name="Ingredients" id="pizza-ingredients" placeholder=" " required>
+                            <!--<div class="mb-3">
+                            <label for="pizza-image" class="form-label">Изображение (URL)</label>
+                            <input type="text" class="form-control" id="pizza-image" placeholder="\images\название.jpg" required>
+                        </div>-->
+                            <div class="mb-3">
+                                <label for="pizza-ingredients" class="form-label">Ингредиенты</label>
+                                <input type="text" class="form-control" name="Ingredients" id="pizza-ingredients" placeholder=" " required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pizza-price" class="form-label">Цена</label>
+                                <input type="number" min="0" class="form-control" id="pizza-price" name="Price" step="0.01" placeholder=" " required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pizza-weight" class="form-label">Вес (грамм)</label>
+                                <input type="number" min="0" class="form-control" id="pizza-weight" name="Weight" placeholder=" " required>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="pizza-price" class="form-label">Цена</label>
-                            <input type="number" min="0" class="form-control" id="pizza-price" name="Price" step="0.01" placeholder=" " required>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                            <button type="submit" class="btn btn-success">Сохранить</button>
                         </div>
-                        <div class="mb-3">
-                            <label for="pizza-weight" class="form-label">Вес (грамм)</label>
-                            <input type="number" min="0" class="form-control" id="pizza-weight" name="Weight" placeholder=" " required>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-                        <button type="submit" class="btn btn-success">Сохранить</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
+
     </div>
+    
 
     <div class="modal fade" id="pizzaDetailModal" tabindex="-1" aria-labelledby="pizzaDetailModalLabel" aria-hidden="true">
         <div class="modal-dialog">

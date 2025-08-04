@@ -7,7 +7,12 @@ const mySpinner = document.getElementById('pizzaLoader');
 const dropZone = document.getElementById('drop-zone');
 const fileImage = document.getElementById('pizza-image');
 const prevImage = document.getElementById('prevImage');
-const zaglushka = "/images/zaglushka_1.jpg"
+//const zaglushka = "/images/zaglushka_1.jpg";
+const zaglushka = "/images/no-image.png";
+
+function handleImageError(img) {
+    img.src = zaglushka;
+}
 
 function generatePizzaCards(pizzas) {
     const pageContainer = $(".Page-container");
@@ -52,11 +57,11 @@ function PizzasGetAll() {
         },
         success: function (data) {
 
-            closePizzaLoader();
+            //closePizzaLoader();
             generatePizzaCards(data);
         },
         error: function () {
-            closePizzaLoader();
+            //closePizzaLoader();
             console.error("Ошибка при получении списка пицц");
         }
     });
@@ -68,14 +73,14 @@ function PizzasGetAll() {
 
 function generatePizzaDetail(pizza) {
     if (pizza.image == null) {
-        pizza.image = "/images/cagliari_1.jpg"
+        pizza.image = zaglushka;
     }
     const container = $(".Page-container");
     const flexContainer = $(".my-flex-container")
     container.empty();
 
     const cardHtml = `
-            <div class="pizza-details-card" data-id="${pizza.id}">
+            <div class="pizza-details-card"  data-id="${pizza.id}">
                 <button id="back-to-list" class="btn btn-outline-primary">
                     &#8592; Назад
                 </button>
@@ -125,7 +130,7 @@ function closeDetailModal() {
     pizzaEditModal.hide();
 }
 
-$(document).on('click', '#back-to-list', function () {
+$(pageContainer).on('click', '#back-to-list', function () {
     PizzasGetAll();
 });
 
@@ -158,72 +163,6 @@ function closeEditModal() {
     pizzaEditModal.hide();
 }
 
-
-//$('#pizza-form').on('submit', function (e) {
-//    e.preventDefault();
-
-
-//    const pizza = {
-//        name: $('#pizza-name').val(),
-//        image: $('#pizza-image').val(),
-//        ingredients: $('#pizza-ingredients').val(),
-//        price: parseInt($('#pizza-price').val()),
-//        weight: parseInt($('#pizza-weight').val())
-//    };
-
-
-//    pizzaData = new FormData($('pizza-form')[0]);
-//    //pizzaData.append("Id", parseInt($("#pizza-id").val()));
-//    pizzaData.append("Name", $("#pizza-name").val());
-//    pizzaData.append("Image", fileImage.files[0]);
-//    pizzaData.append("Ingredients", $("#pizza-ingredients").val());
-//    pizzaData.append("Weight", parseInt($('#pizza-weight').val()));
-//    pizzaData.append("Price", parseInt($('#pizza-weight').val()));
-
-//    const id = $('#pizza-id').val();
-
-//    if (id) {
-//        $.ajax({
-//            url: uri + id,
-//            type: "PUT",
-//            contentType: false,
-//            processData: false,
-//            data: { id, pizzaData },
-//            dataType: 'JSON',
-//            //data: JSON.stringify({ id, ...pizza }),
-//            beforeSend: function () {
-//                openPizzaLoader();
-//            },
-//            success: function () {
-//                closePizzaLoader();
-//                closeEditModal();
-//                PizzasGetAll();
-//            },
-//            error: () => alert("Ошибка при обновлении пиццы")
-//        });
-//    } else {
-//        $.ajax({
-//            url: uri,
-//            type: "POST",
-//            // data: JSON.stringify(pizza),
-//            contentType: false,
-//            processData: false,
-//            data: pizzaData,
-//            dataType: 'JSON',
-//            beforeSend: function () {
-//                openPizzaLoader();
-//            },
-//            success: function () {
-//                closePizzaLoader();
-//                closeEditModal();
-//                PizzasGetAll();
-//            },
-//            error: () => alert("Ошибка при создании пиццы")
-
-//        });
-//    }
-//});
-
 $('#pizza-form').on('submit', function (e) {
     e.preventDefault();
 
@@ -252,7 +191,7 @@ $('#pizza-form').on('submit', function (e) {
             openPizzaLoader();
         },
         success: function () {
-            closePizzaLoader();
+            //closePizzaLoader();
             closeEditModal();
             PizzasGetAll();
         },
@@ -292,7 +231,7 @@ function readURL(input) {
     }
 }
 
-$(document).on('click', '.card-name', function () {
+$(".Page-container").on('click', '.card-name', function () {
     var pizzaId = ($(this).data('id'));
     $.ajax({
         url: uri + pizzaId,
@@ -302,7 +241,7 @@ $(document).on('click', '.card-name', function () {
             openPizzaLoader();
         },
         success: function (data) {
-            closePizzaLoader();
+            //closePizzaLoader();
             openDetailModal(data);
 
         },
@@ -314,11 +253,11 @@ $(document).on('click', '.card-name', function () {
 
 //События
 
-$(document).on('click', '.button-link-Create', function () {
+$(".Page-container").on('click', '.button-link-Create', function () {
     openEditModal();
 });
 
-$(document).on('click', '.button-link-Edit', function () {
+$(".Page-container").on('click', '.button-link-Edit', function () {
     const pizzaId = $(this).data('id');
     $.ajax({
         url: uri + pizzaId,
@@ -328,7 +267,7 @@ $(document).on('click', '.button-link-Edit', function () {
             openPizzaLoader();
         },
         success: function (data) {
-            closePizzaLoader();
+            //closePizzaLoader();
             openEditModal(data);
         },
         error: function () {
@@ -337,7 +276,7 @@ $(document).on('click', '.button-link-Edit', function () {
     });
 });
 
-$(document).on('click', '.button-link-Delete', function (e) {
+$(".Page-container").on('click', '.button-link-Delete', function (e) {
     var pizzaId = $(this).data('id');
     var elemToDel = this.closest('.flex-card');
     let IsDelete = confirm("Удалить элемент?");
@@ -350,14 +289,14 @@ $(document).on('click', '.button-link-Delete', function (e) {
                 openPizzaLoader();
             },
             success: function (data) {
-                closePizzaLoader();
+                //closePizzaLoader();
                 elemToDel.remove();
             },
         })
     }
 });
 
-$(document).on('click', '.card-img', function () {
+$(".Page-container").on('click', '.card-img', function () {
     var pizzaId = ($(this).data('id'));
     $.ajax({
         url: uri + pizzaId,
@@ -367,7 +306,7 @@ $(document).on('click', '.card-img', function () {
             openPizzaLoader();
         },
         success: function (data) {
-            closePizzaLoader();
+            //closePizzaLoader();
             generatePizzaDetail(data);
 
         },
@@ -377,8 +316,13 @@ $(document).on('click', '.card-img', function () {
     })
 })
 
-$(document).on('change', '#pizza-image', function () {
+$(".modals-window").on('change', '#pizza-image', function () {
     readURL(this);
+})
+
+$(document).on('click', "#btn-reset", function () {
+    // fileImage.replaceWith(fileImage.val('').clone(true));
+    fileImage.files = new DataTransfer().files;
 })
 
 $(document).ajaxStart(function () {
@@ -390,109 +334,73 @@ $(document).ajaxStop(function () {
 });
 
 
-//drag-and-drop
 
-//const dropZone = document.getElementById('drop-zone');
-//const fileImage = document.getElementById('pizza-image');
-//const prevImage = document.getElementById('prevImage');
+//$(".modals-window").ready(function () {
+//    const dropZone = $("#drop-zone");
+//    const fileInput = $("#pizza-image");
+//    const previewImage = $("#prevImage");
 
+//    // Клик по зоне = открытие диалога выбора
+//    dropZone.on("click", function () {
+//        fileInput.click();
+//    })
 
-//var dropArea = $('#drag-zone');
+//    // Отображение превью при выборе файла
+//    fileInput.on("change", (e) => handleFile(e.target.files[0]));
 
-//// Prevent default drag behaviors
-//$(document).on('dragenter dragover dragleave drop', function (e) {
-//    e.preventDefault();
-//    e.stopPropagation();
+//    dropZone.on("dragover", function (e) {
+//        e.preventDefault();
+//        dropZone.addClass("dragover");
+//    });
+
+//    dropZone.on("dragleave", function () {
+//        dropZone.removeClass("dragover");
+//    });
+
+//    dropZone.on("drop", function (e) {
+//        e.preventDefault();
+//        dropZone.removeClass("dragover");
+
+//        const file = e.originalEvent.dataTransfer.files[0];
+//        if (file) {
+//            fileInput[0].files = e.originalEvent.dataTransfer.files;
+//            handleFile(file);
+//        }
+//    });
+
+//    function handleFile(file) {
+//        if (!file.type.startsWith("image/")) return;
+
+//        const reader = new FileReader();
+//        reader.onload = (e) => {
+//            previewImage.attr("src", e.target.result).removeClass("d-none");
+//        };
+//        reader.readAsDataURL(file);
+//    }
+
+//    // Отправка формы создания/обновления
+//    $("#save-pizza-btn").on("click", function () {
+//        const form = document.getElementById("pizza-form");
+//        const formData = new FormData(form);
+//        const id = $("#pizza-id").val();
+//        const isUpdate = id !== "";
+
+//        const url = isUpdate ? `/Pizza/${id}` : "/Pizza/PizzaCreate";
+//        const method = isUpdate ? "PUT" : "POST";
+
+//        $.ajax({
+//            url: url,
+//            method: method,
+//            data: formData,
+//            processData: false,
+//            contentType: false,
+//            success: function () {
+//                $("#pizzaModal").modal("hide");
+//                loadPizzaList(); // функция для обновления списка
+//            },
+//            error: function () {
+//                alert("Ошибка при сохранении пиццы");
+//            }
+//        });
+//    });
 //});
-
-//// Highlight drop area on dragenter/dragover
-//dropArea.on('dragenter dragover', function () {
-//    dropArea.addClass('highlight');
-//});
-
-//// Remove highlight on dragleave/drop
-//dropArea.on('dragleave drop', function () {
-//    dropArea.removeClass('highlight');
-//});
-
-//// Handle dropped files
-//dropArea.on('drop', function (e) {
-//    //const form = $('#pizza-form')[0];
-//    //const formData = new FormData(form);
-//    var files = e.originalEvent.dataTransfer.files;
-//    ////handleFiles(files);
-//    //formData.set('Image', files[0] )
-//    //this.formData.set('Image', files[0]);
-//    //LoadFormData(files)
-//    fileImage.files[0] = files[0];
-//    readURL(files);
-//});
-
-
-$(document).ready(function () {
-    const dropZone = $("#drop-zone");
-    const fileInput = $("#pizza-image");
-    const previewImage = $("#preview-image");
-
-    // Клик по зоне = открытие диалога выбора
-    dropZone.on("click", () => fileInput.click());
-
-    // Отображение превью при выборе файла
-    fileInput.on("change", (e) => handleFile(e.target.files[0]));
-
-    dropZone.on("dragover", function (e) {
-        e.preventDefault();
-        dropZone.addClass("dragover");
-    });
-
-    dropZone.on("dragleave", function () {
-        dropZone.removeClass("dragover");
-    });
-
-    dropZone.on("drop", function (e) {
-        e.preventDefault();
-        dropZone.removeClass("dragover");
-
-        const file = e.originalEvent.dataTransfer.files[0];
-        if (file) {
-            fileInput[0].files = e.originalEvent.dataTransfer.files;
-            handleFile(file);
-        }
-    });
-
-    function handleFile(file) {
-        if (!file.type.startsWith("image/")) return;
-
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            previewImage.attr("src", e.target.result).removeClass("d-none");
-        };
-        reader.readAsDataURL(file);
-    }
-
-    // Отправка формы создания/обновления
-    $("#save-pizza-btn").on("click", function () {
-        const form = document.getElementById("pizza-form");
-        const formData = new FormData(form);
-        const id = $("#pizza-id").val();
-        const isUpdate = id !== "";
-
-        const url = isUpdate ? `/Pizza/${id}` : "/Pizza/PizzaCreate";
-        const method = isUpdate ? "PUT" : "POST";
-
-        $.ajax({
-            url: url,
-            method: method,
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function () {
-                $("#pizzaModal").modal("hide");
-                loadPizzaList(); // функция для обновления списка
-            },
-            error: function () {
-                alert("Ошибка при сохранении пиццы");
-            }
-        });
-    });
-});
