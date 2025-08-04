@@ -158,6 +158,7 @@ function openEditModal(pizza = null) {
         $('#pizza-id').val('');
         prevImage.src = zaglushka;
     }
+    $("#CheckNotImage").prop("checked", false);
     pizzaEditModal.show();
 }
 

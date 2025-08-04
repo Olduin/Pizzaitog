@@ -1,34 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\PizzaAPI\\",
+  "WorkspaceRootPath": "C:\\Users\\oldui\\source\\repos\\Pizzaitog\\PizzaAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|c:\\users\\ev.kotsyuk\\documents\\pizzaitog\\pizzaapi\\controllers\\pizzacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|solutionrelative:controllers\\pizzacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|c:\\users\\oldui\\source\\repos\\pizzaitog\\pizzaapi\\wwwroot\\js\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|solutionrelative:wwwroot\\js\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|c:\\users\\ev.kotsyuk\\documents\\pizzaitog\\pizzaapi\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|c:\\users\\oldui\\source\\repos\\pizzaitog\\pizzaapi\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|c:\\users\\ev.kotsyuk\\documents\\pizzaitog\\pizzaapi\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "AbsoluteMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|c:\\users\\oldui\\source\\repos\\pizzaitog\\pizzaapi\\controllers\\pizzacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|solutionrelative:controllers\\pizzacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|c:\\users\\oldui\\source\\repos\\pizzaitog\\pizzaapi\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|c:\\users\\ev.kotsyuk\\documents\\pizzaitog\\pizzaapi\\wwwroot\\js\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{FBC6BD39-D62F-49AE-874C-6B957D3BE6D8}|PizzaAPI.csproj|solutionrelative:wwwroot\\js\\index.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\Domain\\DTO\\PizzaDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{545570F3-761B-47FC-9C1E-0029175A4CA3}|..\\Domain\\Domain.csproj|c:\\users\\ev.kotsyuk\\documents\\pizzaitog\\domain\\dto\\pizzadto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\Infrastructure\\PizzaContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{545570F3-761B-47FC-9C1E-0029175A4CA3}|..\\Domain\\Domain.csproj|c:\\users\\ev.kotsyuk\\documents\\pizzaitog\\domain\\pizzamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0ED6798C-6BDF-48F9-B3D9-F488A7922D40}|..\\Infrastructure\\Infrastructure.csproj|c:\\users\\ev.kotsyuk\\documents\\pizzaitog\\infrastructure\\pizzacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\Domain\\PizzaModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,62 +70,61 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Microsoft.NET.Sdk.StaticWebAssets.targets",
               "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
               "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.302\\Sdks\\Microsoft.NET.Sdk.StaticWebAssets\\targets\\Microsoft.NET.Sdk.StaticWebAssets.targets",
               "ViewState": "AgIAAIwCAAAAAAAAAAAEwKYCAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-08-04T12:46:53.612Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T12:46:53.612Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "PizzaDTO.cs",
               "DocumentMoniker": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\Domain\\DTO\\PizzaDTO.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\DTO\\PizzaDTO.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\ev.Kotsyuk\\Documents\\Pizzaitog\\Domain\\DTO\\PizzaDTO.cs",
               "ToolTip": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\Domain\\DTO\\PizzaDTO.cs",
-              "RelativeToolTip": "..\\Domain\\DTO\\PizzaDTO.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\ev.Kotsyuk\\Documents\\Pizzaitog\\Domain\\DTO\\PizzaDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-04T10:59:40.065Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "PizzaContext.cs",
               "DocumentMoniker": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\Infrastructure\\PizzaContext.cs",
-              "RelativeDocumentMoniker": "..\\Infrastructure\\PizzaContext.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\ev.Kotsyuk\\Documents\\Pizzaitog\\Infrastructure\\PizzaContext.cs",
               "ToolTip": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\Infrastructure\\PizzaContext.cs",
-              "RelativeToolTip": "..\\Infrastructure\\PizzaContext.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\ev.Kotsyuk\\Documents\\Pizzaitog\\Infrastructure\\PizzaContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-04T10:29:44.956Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "PizzaModel.cs",
               "DocumentMoniker": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\Domain\\PizzaModel.cs",
-              "RelativeDocumentMoniker": "..\\Domain\\PizzaModel.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\ev.Kotsyuk\\Documents\\Pizzaitog\\Domain\\PizzaModel.cs",
               "ToolTip": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\Domain\\PizzaModel.cs",
-              "RelativeToolTip": "..\\Domain\\PizzaModel.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\ev.Kotsyuk\\Documents\\Pizzaitog\\Domain\\PizzaModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-01T05:00:23.512Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "PizzaController.cs",
-              "DocumentMoniker": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\PizzaAPI\\Controllers\\PizzaController.cs",
+              "DocumentMoniker": "C:\\Users\\oldui\\source\\repos\\Pizzaitog\\PizzaAPI\\Controllers\\PizzaController.cs",
               "RelativeDocumentMoniker": "Controllers\\PizzaController.cs",
-              "ToolTip": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\PizzaAPI\\Controllers\\PizzaController.cs",
+              "ToolTip": "C:\\Users\\oldui\\source\\repos\\Pizzaitog\\PizzaAPI\\Controllers\\PizzaController.cs",
               "RelativeToolTip": "Controllers\\PizzaController.cs",
-              "ViewState": "AgIAAGgAAAAAAAAAAAAIwH8AAAAAAAAAAAAAAA==",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-29T07:28:00.926Z",
               "EditorCaption": ""
@@ -133,41 +132,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\PizzaAPI\\wwwroot\\index.html",
-              "RelativeDocumentMoniker": "wwwroot\\index.html",
-              "ToolTip": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\PizzaAPI\\wwwroot\\index.html",
-              "RelativeToolTip": "wwwroot\\index.html",
-              "ViewState": "AgIAABwAAAAAAAAAAAAAAC0AAAA0AAAAAAAAAA==",
+              "Title": "Index.html",
+              "DocumentMoniker": "C:\\Users\\oldui\\source\\repos\\Pizzaitog\\PizzaAPI\\wwwroot\\Index.html",
+              "RelativeDocumentMoniker": "wwwroot\\Index.html",
+              "ToolTip": "C:\\Users\\oldui\\source\\repos\\Pizzaitog\\PizzaAPI\\wwwroot\\Index.html",
+              "RelativeToolTip": "wwwroot\\Index.html",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABYAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-07-24T05:11:38.072Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "index.js",
-              "DocumentMoniker": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\PizzaAPI\\wwwroot\\js\\index.js",
+              "DocumentMoniker": "C:\\Users\\oldui\\source\\repos\\Pizzaitog\\PizzaAPI\\wwwroot\\js\\index.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\index.js",
-              "ToolTip": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\PizzaAPI\\wwwroot\\js\\index.js",
+              "ToolTip": "C:\\Users\\oldui\\source\\repos\\Pizzaitog\\PizzaAPI\\wwwroot\\js\\index.js",
               "RelativeToolTip": "wwwroot\\js\\index.js",
-              "ViewState": "AgIAAOoAAAAAAAAAAADgvwMBAAARAAAAAAAAAA==",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAAAKAAAAAvAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-07-29T11:47:18.963Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\PizzaAPI\\wwwroot\\css\\site.css",
+              "DocumentMoniker": "C:\\Users\\oldui\\source\\repos\\Pizzaitog\\PizzaAPI\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\ev.Kotsyuk\\Documents\\Pizzaitog\\PizzaAPI\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\oldui\\source\\repos\\Pizzaitog\\PizzaAPI\\wwwroot\\css\\site.css",
               "RelativeToolTip": "wwwroot\\css\\site.css",
               "ViewState": "AgIAAJMBAAAAAAAAAAAAALsBAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-08-04T11:55:55.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T11:55:55.073Z"
             }
           ]
         }
