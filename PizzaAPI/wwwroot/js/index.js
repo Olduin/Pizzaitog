@@ -7,6 +7,7 @@ const mySpinner = document.getElementById('pizzaLoader');
 const dropZone = document.getElementById('drop-zone');
 const fileImage = document.getElementById('pizza-image');
 const prevImage = document.getElementById('prevImage');
+const CheckNotImage = document.getElementById('CheckNotImage');
 //const zaglushka = "/images/zaglushka_1.jpg";
 const zaglushka = "/images/no-image.png";
 
@@ -138,9 +139,10 @@ function openEditModal(pizza = null) {
     if (pizza) {
         if (pizza.image) {
             prevImage.src = pizza.image;
-        }else {
+        } else {
             prevImage.src = zaglushka;
         }
+                
 
         $('#pizza-form')[0].reset();
         $('#pizzaEditModalLabel').text("Редактировать пиццу");
@@ -176,6 +178,9 @@ $('#pizza-form').on('submit', function (e) {
 
     if (isEdit) {
         formData.append("Id", id);
+    }
+    if (CheckNotImage.checked) {
+        formData.append("NoImage", true);
     }
 
     const method = isEdit ? "PUT" : "POST";
@@ -252,6 +257,9 @@ $(".Page-container").on('click', '.card-name', function () {
 });
 
 //События
+$(CheckNotImage).change(function () {
+    $("#editImage").toggle(!this.checked)
+});
 
 $(".Page-container").on('click', '.button-link-Create', function () {
     openEditModal();
@@ -320,10 +328,10 @@ $(".modals-window").on('change', '#pizza-image', function () {
     readURL(this);
 })
 
-$(document).on('click', "#btn-reset", function () {
-    // fileImage.replaceWith(fileImage.val('').clone(true));
-    fileImage.files = new DataTransfer().files;
-})
+//$(document).on('click', "#btn-reset", function () {
+//    // fileImage.replaceWith(fileImage.val('').clone(true));
+//   // fileImage.files = new DataTransfer().files;
+//})
 
 $(document).ajaxStart(function () {
     $(".preloader").fadeIn(200);

@@ -427,4 +427,18 @@ label {
         border-color: #4caf50;
     }
 
+.ckeck-not-image {
+   display: flex;
+    
+}
 
+/*edit-image {
+    
+    display: inline-block;
+}
+
+check-box:checked ~ edit-image {
+    display: none;
+}
+
+*/

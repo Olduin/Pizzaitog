@@ -39,9 +39,16 @@
                         </div>-->
                             <div class="mb-3">
                                 <label for="pizza-image" class="form-label">Изображение (URL)</label>
-                                <input type="file" name="image" accept="image/*" class="form-control" id="pizza-image" enctype="multipart/form-data">
-                                <button type="button" id="btn-reset" class="btn btn-success">Отчистить</button>
-                                <img class="edit-image" id="prevImage" src="#" alt="Image">
+                                <div class="ckeck-not-image">
+                                    <label for="CheckNotImage">Без изображения?</label>
+                                    <input type="checkbox" id="CheckNotImage" name="check-box" >
+                                </div>
+                                <div id="editImage" class="edit-image">
+                                    <input type="file" name="image" accept="image/*" class="form-control" id="pizza-image" enctype="multipart/form-data">
+                                    <!--<button type="button" id="btn-reset" class="btn btn-success">Отчистить</button>-->
+                                    <img class="edit-image" id="prevImage" src="#" alt="Image">
+                                </div>
+
                             </div>
 
                             <!--<div class="mb-3">

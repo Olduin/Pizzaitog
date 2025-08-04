@@ -118,6 +118,11 @@ namespace PizzaSales.PizzaAPI.Controllers
                     _pizza.Price = pizza.Price;
                     _pizza.Weight = pizza.Weight;
 
+                    if (pizza.NoImage == true)
+                    {
+                        _pizza.Image = null;
+                    } 
+
                     if (pizza.Image != null)
                     {                       
                         _pizza.Image = "/images/" + pizza.Image.FileName;
@@ -127,11 +132,7 @@ namespace PizzaSales.PizzaAPI.Controllers
                         {
                             pizza.Image.CopyTo(fileStream);
                         }
-                    }
-                    else
-                    {
-                        _pizza.Image = null;
-                    }
+                    }                 
 
                     _repository.PizzaUpdate(_pizza);
                     _repository.Save();
