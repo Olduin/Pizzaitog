@@ -381,6 +381,14 @@ $(document).on('change', '#pizza-image', function () {
     readURL(this);
 })
 
+$(document).ajaxStart(function () {
+    $(".preloader").fadeIn(200);
+});
+
+$(document).ajaxStop(function () {
+    $(".preloader").fadeOut(200);
+});
+
 
 //drag-and-drop
 
@@ -421,3 +429,70 @@ $(document).on('change', '#pizza-image', function () {
 //});
 
 
+$(document).ready(function () {
+    const dropZone = $("#drop-zone");
+    const fileInput = $("#pizza-image");
+    const previewImage = $("#preview-image");
+
+    // Клик по зоне = открытие диалога выбора
+    dropZone.on("click", () => fileInput.click());
+
+    // Отображение превью при выборе файла
+    fileInput.on("change", (e) => handleFile(e.target.files[0]));
+
+    dropZone.on("dragover", function (e) {
+        e.preventDefault();
+        dropZone.addClass("dragover");
+    });
+
+    dropZone.on("dragleave", function () {
+        dropZone.removeClass("dragover");
+    });
+
+    dropZone.on("drop", function (e) {
+        e.preventDefault();
+        dropZone.removeClass("dragover");
+
+        const file = e.originalEvent.dataTransfer.files[0];
+        if (file) {
+            fileInput[0].files = e.originalEvent.dataTransfer.files;
+            handleFile(file);
+        }
+    });
+
+    function handleFile(file) {
+        if (!file.type.startsWith("image/")) return;
+
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            previewImage.attr("src", e.target.result).removeClass("d-none");
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Отправка формы создания/обновления
+    $("#save-pizza-btn").on("click", function () {
+        const form = document.getElementById("pizza-form");
+        const formData = new FormData(form);
+        const id = $("#pizza-id").val();
+        const isUpdate = id !== "";
+
+        const url = isUpdate ? `/Pizza/${id}` : "/Pizza/PizzaCreate";
+        const method = isUpdate ? "PUT" : "POST";
+
+        $.ajax({
+            url: url,
+            method: method,
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function () {
+                $("#pizzaModal").modal("hide");
+                loadPizzaList(); // функция для обновления списка
+            },
+            error: function () {
+                alert("Ошибка при сохранении пиццы");
+            }
+        });
+    });
+});

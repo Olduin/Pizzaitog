@@ -27,6 +27,11 @@
                             <input type="text" class="form-control" name="Name" id="pizza-name" placeholder=" " required>
                         </div>
                         <!--<div id="drag-zone" class"mb-3"></div>-->
+                        <!-- Drop-зона -->
+                        <div id="drop-zone" class="drop-zone text-center border border-success p-3 rounded" style="cursor: pointer;">
+                            <p class="text-muted m-0">Перетащите изображение сюда или нажмите для выбора</p>
+                            <img id="preview-image" class="img-fluid mt-2 d-none" style="max-height: 150px;" />
+                        </div>
                         <div class="mb-3">
                             <label for="pizza-image" class="form-label">Изображение (URL)</label>
                             <input type="file" name="image" accept="image/*" class="form-control" id="pizza-image" enctype="multipart/form-data">
@@ -35,9 +40,9 @@
                         </div>
 
                         <!--<div class="mb-3">
-                            <label for="pizza-image" class="form-label">Изображение (URL)</label>
-                            <input type="text" class="form-control" id="pizza-image" placeholder="\images\название.jpg" required>
-                        </div>-->
+        <label for="pizza-image" class="form-label">Изображение (URL)</label>
+        <input type="text" class="form-control" id="pizza-image" placeholder="\images\название.jpg" required>
+    </div>-->
                         <div class="mb-3">
                             <label for="pizza-ingredients" class="form-label">Ингредиенты</label>
                             <input type="text" class="form-control" name="Ingredients" id="pizza-ingredients" placeholder=" " required>
