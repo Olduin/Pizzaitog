@@ -122,11 +122,10 @@ namespace PizzaSales.PizzaAPI.Controllers
                     {
                         _pizza.Image = null;
                     } 
-
-                    if (pizza.Image != null)
-                    {                       
+                    else { 
+                   
                         _pizza.Image = "/images/" + pizza.Image.FileName;
-                       
+
                         var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, _pizza.Image.TrimStart('/'));
                         using (var fileStream = new FileStream(imagePath, FileMode.Create))
                         {
