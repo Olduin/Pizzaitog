@@ -15,6 +15,8 @@ internal class Program
         var builder = WebApplication.CreateBuilder(args);
 
         string connetion = builder.Configuration.GetConnectionString("DefaultConnection");
+        var logFilePath = builder.Configuration["Logging:FileLogger:Path"];
+        
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
@@ -22,7 +24,8 @@ internal class Program
         builder.Services.AddScoped<IRepository<PizzaModel>, Repository>();
 
         //builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));        
-        builder.Logging.AddFile(Path.Combine("C:\\Temp", "logger.txt"));
+        //builder.Logging.AddFile(Path.Combine("C:\\Temp", "logger.txt"));
+        builder.Logging.AddFile(logFilePath);
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
