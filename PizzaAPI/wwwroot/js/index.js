@@ -11,7 +11,7 @@ const CheckNotImage = document.getElementById('CheckNotImage');
 const zaglushka = "/images/no-image.png";
 
 function handleImageError(img) {
-    img.src = zaglushka;
+   img.src = zaglushka;
 }
 
 function generatePizzaCards(pizzas) {
@@ -32,7 +32,7 @@ function generatePizzaCards(pizzas) {
         const cardHtml = `
                 <div class="flex-card" id="card1" data-id="card-${pizza.id}">
                     <div class="card-img-container">
-                        <img class="card-img" data-id="${pizza.id}" src="${pizza.image}" onerror="handleImageError(this)" alt="Не удалось загрузить">
+                        <img class="card-img" data-id="${pizza.id}" src="${pizza.image}" onerror="handleImageError(this)" alt="Нет изображения">
                     </div>                    
                     <a class="card-name" id="card-name" data-id="${pizza.id}" >${pizza.name}</a>
                     <div class="card-ingredients">${pizza.ingredients}</div>
@@ -86,7 +86,7 @@ function generatePizzaDetail(pizza) {
                 <button id="back-to-list" class="btn btn-outline-primary">
                     &#8592; Назад
                 </button>
-                <img class="card-img" src="${pizza.image}" onerror="handleImageError(this)" alt="Карточка товара">
+                <img class="card-img" src="${pizza.image}" onerror="handleImageError(this)" >
                 <h4 class="pizza-title">${pizza.name}</h4>
                 <div class="pizza-ingredient"> ${pizza.ingredients} </div>
                 <div class="card-footer">
@@ -140,10 +140,12 @@ function openEditModal(pizza = null) {
     if (pizza) {
         if (pizza.image) {
             prevImage.src = pizza.image;
+            prevImage.style.display = 'block';
+            //prevImage.removeAttribute('hidden')
         } else {
-            prevImage.src = zaglushka;
-        }
-                
+            //prevImage.
+            prevImage.style.display = 'none';
+        }                
 
         $('#pizza-form')[0].reset();
         $('#pizzaEditModalLabel').text("Редактировать пиццу");
@@ -157,7 +159,7 @@ function openEditModal(pizza = null) {
         $('#pizzaEditModalLabel').text("Добавить пиццу");
         $('#pizza-form')[0].reset();
         $('#pizza-id').val('');
-        prevImage.src = zaglushka;
+       // prevImage.src = zaglushka;
     }
 
     pizzaEditModal.show();
@@ -331,6 +333,8 @@ $(".Page-container").on('click', '.card-img', function () {
 
 $(".modals-window").on('change', '#pizza-image', function () {
     readURL(this);
+    //prevImage.removeAttribute('hidden');
+    prevImage.style.display = 'block';
 })
 
 //$(document).on('click', "#btn-reset", function () {

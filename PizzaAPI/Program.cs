@@ -14,10 +14,11 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        string connetion = builder.Configuration.GetConnectionString("DefaultConnection");
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
-        builder.Services.AddDbContext<PizzaContext>(options => options.UseSqlServer());
+        builder.Services.AddDbContext<PizzaContext>(options => options.UseSqlServer(connetion));
         builder.Services.AddScoped<IRepository<PizzaModel>, Repository>();
 
         //builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));        

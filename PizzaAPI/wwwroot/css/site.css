@@ -403,6 +403,7 @@ label {
     color: #80c142;
 }
 
+
 .edit-image {
     margin-top: 5px;
     border-radius: 10%;
@@ -411,7 +412,13 @@ label {
     cursor: pointer;
     max-height: 100px;
     object-fit: contain;
+    display: none;
 }
+.edit-image[src="#"] {
+   display: block;
+}
+
+
 
 /*#drag-zone {
     border: 2px dashed #ccc;
