@@ -54,12 +54,22 @@ body {
         border-color: #4CAF50;
     }
 
-.card-img {
-    border-radius: 10%;
-    max-height: 280px;
-    cursor: pointer;
-    object-fit: contain;
+.card-img-container{
+
 }
+
+    .card-img-container:before {
+        height: auto;
+        min-height: 40%;
+        min-width: 23%
+    }
+
+    .card-img {
+        border-radius: 10%;
+        max-height: 280px;
+        cursor: pointer;
+        object-fit: contain;
+    }
 
 .card-name {
     font-family: Calibri;
@@ -99,6 +109,7 @@ body {
     font-size: 20px;
     margin-left:6px;
 }
+
 
 .button-link {
     border: 2px solid;

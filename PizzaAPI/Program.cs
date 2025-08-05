@@ -34,7 +34,7 @@ internal class Program
             }
 
         app.UseHttpsRedirection();
-
+                
         app.UseDefaultFiles();
 
         app.UseStaticFiles();

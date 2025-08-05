@@ -8,7 +8,6 @@ const dropZone = document.getElementById('drop-zone');
 const fileImage = document.getElementById('pizza-image');
 const prevImage = document.getElementById('prevImage');
 const CheckNotImage = document.getElementById('CheckNotImage');
-//const zaglushka = "/images/zaglushka_1.jpg";
 const zaglushka = "/images/no-image.png";
 
 function handleImageError(img) {
@@ -26,13 +25,15 @@ function generatePizzaCards(pizzas) {
     const flexContainer = $(".my-flex-container");       
     
     pizzas.forEach(pizza => {
-        if (pizza.image == null) {
-            pizza.image = zaglushka;
-        }
+        //if (pizza.image == null) {
+        //    pizza.image = zaglushka;
+        //}
 
         const cardHtml = `
                 <div class="flex-card" id="card1" data-id="card-${pizza.id}">
-                    <img class="card-img" data-id="${pizza.id}" src="${pizza.image}" alt="Не удалось загрузить">
+                    <div class="card-img-container">
+                        <img class="card-img" data-id="${pizza.id}" src="${pizza.image}" onerror="handleImageError(this)" alt="Не удалось загрузить">
+                    </div>                    
                     <a class="card-name" id="card-name" data-id="${pizza.id}" >${pizza.name}</a>
                     <div class="card-ingredients">${pizza.ingredients}</div>
                     <div class="card-footer">
@@ -73,9 +74,9 @@ function PizzasGetAll() {
 })();
 
 function generatePizzaDetail(pizza) {
-    if (pizza.image == null) {
-        pizza.image = zaglushka;
-    }
+    //if (pizza.image == null) {
+    //    pizza.image = zaglushka;
+    //}
     const container = $(".Page-container");
     const flexContainer = $(".my-flex-container")
     container.empty();
@@ -85,7 +86,7 @@ function generatePizzaDetail(pizza) {
                 <button id="back-to-list" class="btn btn-outline-primary">
                     &#8592; Назад
                 </button>
-                <img class="card-img" src="${pizza.image}">
+                <img class="card-img" src="${pizza.image}" onerror="handleImageError(this)" alt="Карточка товара">
                 <h4 class="pizza-title">${pizza.name}</h4>
                 <div class="pizza-ingredient"> ${pizza.ingredients} </div>
                 <div class="card-footer">
@@ -158,8 +159,10 @@ function openEditModal(pizza = null) {
         $('#pizza-id').val('');
         prevImage.src = zaglushka;
     }
-    $("#CheckNotImage").prop("checked", false);
+
     pizzaEditModal.show();
+    //$(CheckNotImage).prop("checked", false);
+    $("#editImage").toggle(display = true)
 }
 
 function closeEditModal() {
@@ -258,8 +261,9 @@ $(".Page-container").on('click', '.card-name', function () {
 });
 
 //События
-$(CheckNotImage).change(function () {
+$(CheckNotImage).on("change",function () {
     $("#editImage").toggle(!this.checked)
+    //$("#editImage").
 });
 
 $(".Page-container").on('click', '.button-link-Create', function () {

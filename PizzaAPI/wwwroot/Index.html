@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/site.css" asp-append-version="true" />
 </head>
 <body>
-
+    <!--<script src="/js/newFile.js" async></script>-->
     <div class="Page-container" id="pageContainer"></div>
     <!--<div class="my-flex-container"></div>-->
     <!-- Модальные окна -->
@@ -30,31 +30,31 @@
                             <!--<div id="drag-zone" class"mb-3"></div>-->
                             <!-- Drop-зона -->
                             <!--<div id="drop-zone" class="drop-zone text-center border border-success p-3 rounded" style="cursor: pointer;">
-                            <p class="text-muted m-0">Перетащите изображение сюда или нажмите для выбора</p>
-                            <img id="preview-image" class="img-fluid mt-2 d-none" style="max-height: 150px;" />
-                            <input type="file" name="image" accept="image/*" class="form-control" id="pizza-image" enctype="multipart/form-data">
-                            <label for="pizza-image" class="form-label">Изображение (URL)</label>
-                            <a href="#" class="upload-files-button">Загрузить изображение</a>
-                            <img class="edit-image" id="prevImage" src="#" alt="Image"></img>
-                        </div>-->
+                                <p class="text-muted m-0">Перетащите изображение сюда или нажмите для выбора</p>
+                                <img id="preview-image" class="img-fluid mt-2 d-none" style="max-height: 150px;" />
+                                <input type="file" name="image" accept="image/*" class="form-control" id="pizza-image" enctype="multipart/form-data">
+                                <label for="pizza-image" class="form-label">Изображение (URL)</label>
+                                <a href="#" class="upload-files-button">Загрузить изображение</a>
+                                <img class="edit-image" id="prevImage" src="#" alt="Image"></img>
+                            </div>-->
                             <div class="mb-3">
                                 <label for="pizza-image" class="form-label">Изображение (URL)</label>
                                 <div class="ckeck-not-image">
                                     <label for="CheckNotImage">Без изображения?</label>
-                                    <input type="checkbox" id="CheckNotImage" name="check-box" >
+                                    <input type="checkbox" id="CheckNotImage" name="check-box">
                                 </div>
-                                <div id="editImage" >
+                                <div id="editImage">
                                     <input type="file" name="image" accept="image/*" class="form-control" id="pizza-image" enctype="multipart/form-data">
                                     <!--<button type="button" id="btn-reset" class="btn btn-success">Отчистить</button>-->
-                                    <img class="edit-image" id="prevImage" src="#" alt="Image">
+                                    <img class="edit-image" id="prevImage" src="#"  alt="Загрузка">
                                 </div>
 
                             </div>
 
                             <!--<div class="mb-3">
-                            <label for="pizza-image" class="form-label">Изображение (URL)</label>
-                            <input type="text" class="form-control" id="pizza-image" placeholder="\images\название.jpg" required>
-                        </div>-->
+                                <label for="pizza-image" class="form-label">Изображение (URL)</label>
+                                <input type="text" class="form-control" id="pizza-image" placeholder="\images\название.jpg" required>
+                            </div>-->
                             <div class="mb-3">
                                 <label for="pizza-ingredients" class="form-label">Ингредиенты</label>
                                 <input type="text" class="form-control" name="Ingredients" id="pizza-ingredients" placeholder=" " required>
@@ -78,7 +78,7 @@
         </div>
 
     </div>
-    
+
 
     <div class="modal fade" id="pizzaDetailModal" tabindex="-1" aria-labelledby="pizzaDetailModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -103,21 +103,17 @@
         </div>
     </div>
 
- 
-     <!--<div class="d-flex Loader align-items-center justify-content-center min-vh-100">
-        <div id="pizzaLoader" class="spinner-border" role="status">
-            <span class="sr-only"></span>
-        </div>
-    </div>-->
     <div class="preloader">
         <div id="pizzaLoader" class="spinner-border" role="status"></div>
     </div>
 
-        <div id="overlay" style="display:none; position:fixed; top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);"></div>
+    <div id="overlay" style="display:none; position:fixed; top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);"></div>
 
 </body>
 </html>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!--<script src="/lib/jquery/dist/jquery.min.js"></script>-->
 <script src="/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/index.js"></script>
+
+<script src="/js/index.js" ></script>

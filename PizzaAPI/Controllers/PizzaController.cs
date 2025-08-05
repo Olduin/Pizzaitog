@@ -122,7 +122,7 @@ namespace PizzaSales.PizzaAPI.Controllers
                     {
                         _pizza.Image = null;
                     } 
-                    else { 
+                    if(pizza.Image != null){ 
                    
                         _pizza.Image = "/images/" + pizza.Image.FileName;
 
