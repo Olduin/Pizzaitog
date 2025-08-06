@@ -18,7 +18,7 @@ internal class Program
         string connetion = builder.Configuration.GetConnectionString("DefaultConnection");
         var logFilePath = builder.Configuration["Logging:FileLogger:Path"];
 
-        var section = builder.Configuration.GetSection("Logging: File");
+        //var section = builder.Configuration.GetSection("Logging: File");
         builder.Logging.AddFile(logFilePath);
 
         // Add services to the container.

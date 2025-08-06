@@ -107,7 +107,7 @@ function generatePizzaDetail(pizza) {
 function openDetailModal(pizza) {
     $('#pizzaDetailModalLabel').text(pizza.name);
     $('#pizza-detail-image').attr("src", pizza.image);
-    $('#pizza-detail-name').text(pizza.name);
+    $('#pizza-detail-name').text(pizza.name);   
     $('#pizza-detail-ingredient').text(pizza.ingredients);
     $('#pizza-detail-weight').text(pizza.weight + ' гр.');  
     $('#pizza-detail-price').text(pizza.price + ' ₽');
