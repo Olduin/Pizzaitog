@@ -1,12 +1,13 @@
-using Infrastructure;
-using PizzaSales.Infrastructure;
-using Microsoft.Extensions.Logging;
-using PizzaSales.Domain.Logger;
-using Domain.Logger;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using PizzaSales.Domain;
 using Domain;
+using Domain.Logger;
+using Infrastructure;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using PizzaSales.Domain;
+using PizzaSales.Domain.Logger;
+using PizzaSales.Infrastructure;
+using System.Threading.Tasks;
 
 internal class Program
 {
@@ -14,14 +15,19 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        string connetion = builder.Configuration.GetConnectionString("DefaultConnection");
+        var logFilePath = builder.Configuration["Logging:FileLogger:Path"];
+
+        //var section = builder.Configuration.GetSection("Logging: File");
+        builder.Logging.AddFile(logFilePath);
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
-        builder.Services.AddDbContext<PizzaContext>(options => options.UseSqlServer());
+        builder.Services.AddDbContext<PizzaContext>(options => options.UseSqlServer(connetion));
         builder.Services.AddScoped<IRepository<PizzaModel>, Repository>();
 
         //builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));        
-        builder.Logging.AddFile(Path.Combine("C:\\Temp", "logger.txt"));
+        //builder.Logging.AddFile(Path.Combine("C:\\Temp", "logger.txt"));        
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
@@ -34,7 +40,7 @@ internal class Program
             }
 
         app.UseHttpsRedirection();
-
+                
         app.UseDefaultFiles();
 
         app.UseStaticFiles();

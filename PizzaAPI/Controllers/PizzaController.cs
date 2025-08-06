@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using PizzaSales.Infrastructure;
 using Domain;
+using System.Threading.Tasks;
+using System.Net;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Domain.DTO;
 
 
 namespace PizzaSales.PizzaAPI.Controllers
@@ -12,11 +16,13 @@ namespace PizzaSales.PizzaAPI.Controllers
     {
         private readonly IRepository<PizzaModel> _repository;
         private readonly ILogger _logger;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public PizzaController(ILogger<PizzaController> logger, IRepository<PizzaModel> repository)
+        public PizzaController(ILogger<PizzaController> logger, IRepository<PizzaModel> repository, IWebHostEnvironment appenvironment)
         {
             _logger = logger;
             _repository = repository;
+            _webHostEnvironment = appenvironment;
         }
      
         [HttpGet]
@@ -25,6 +31,7 @@ namespace PizzaSales.PizzaAPI.Controllers
             _logger.LogInformation("Запрошен список всех пицц (JSON)");
             try
             {
+
                 var pizzas = _repository.PizzaGetAll();
                 if (pizzas == null)
                 {
@@ -55,7 +62,7 @@ namespace PizzaSales.PizzaAPI.Controllers
                     return Problem(detail: "Пицца не найдена");
                 }
 
-                return new JsonResult(pizza);
+                return Ok(pizza);
             }
             catch (Exception ex)
             {
@@ -65,12 +72,29 @@ namespace PizzaSales.PizzaAPI.Controllers
         }
                 
         [HttpPost]
-        public IActionResult PizzaCreate(PizzaModel pizza)
+        public IActionResult PizzaCreate([FromForm] PizzaDTO pizza)
         {
+            PizzaModel _pizza = new PizzaModel();
+            _pizza.Name = pizza.Name;
+            _pizza.Ingredients = pizza.Ingredients;
+            _pizza.Price = pizza.Price;
+            _pizza.Weight = pizza.Weight;
+                         
             _logger.LogInformation("Запрошено создание пиццы");
             try
             {
-                _repository.PizzaAdd(pizza);
+                if (pizza.Image != null)
+                {
+                    _pizza.Image = "/images/" + pizza.Image.FileName;
+
+                    using (var fileStream = new FileStream(_webHostEnvironment.WebRootPath + _pizza.Image, FileMode.Create))
+                    {
+                        pizza.Image.CopyTo(fileStream);
+                    }
+                    var name = Request.Form["name"];
+                }             
+
+                _repository.PizzaAdd(_pizza);
                 _repository.Save();
                 return Ok(pizza);
             }
@@ -78,31 +102,45 @@ namespace PizzaSales.PizzaAPI.Controllers
             {
                 _logger.LogError(ex, "Ошибка при создании пиццы");
                 return Problem(detail: "Произошла ошибка на сервере");
-            }            
-                       
+            }                          
         }
 
         [HttpPut("{id}")]
-        public IActionResult PizzaUpdate(PizzaModel pizza) 
+        public IActionResult PizzaUpdate([FromForm] PizzaDTO pizza)
         {
             if (pizza.Id.HasValue)
             {
-                //Обновление
-                var _item = _repository.PizzaGetById(pizza.Id.Value);
-                if (_item != null)
+                var _pizza = _repository.PizzaGetById(pizza.Id.Value);
+                if (_pizza != null)
                 {
-                    _item.Name = pizza.Name;
-                    _item.Ingredients = pizza.Ingredients;
-                    _item.Image = pizza.Image;
-                    _item.Weight = pizza.Weight;
-                    _item.Price = pizza.Price;
+                    _pizza.Name = pizza.Name;
+                    _pizza.Ingredients = pizza.Ingredients;
+                    _pizza.Price = pizza.Price;
+                    _pizza.Weight = pizza.Weight;
 
-                    //_repository.PizzaUpdate(_item);
-                    _repository.Save();                   
+                    if (pizza.NoImage == true)
+                    {
+                        _pizza.Image = null;
+                    } 
+                    if(pizza.Image != null){ 
+                   
+                        _pizza.Image = "/images/" + pizza.Image.FileName;
+
+                        var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, _pizza.Image.TrimStart('/'));
+                        using (var fileStream = new FileStream(imagePath, FileMode.Create))
+                        {
+                            pizza.Image.CopyTo(fileStream);
+                        }
+                    }                 
+
+                    _repository.PizzaUpdate(_pizza);
+                    _repository.Save();
+
+                    return Ok(pizza);
                 }
             }
-            return Ok(pizza);
 
+            return NotFound();
         }
 
         // DELETE api/pizzas/5
@@ -117,6 +155,5 @@ namespace PizzaSales.PizzaAPI.Controllers
             return NoContent();
 
         }
-
     }
 }
