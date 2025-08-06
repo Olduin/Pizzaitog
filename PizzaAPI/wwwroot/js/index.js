@@ -136,30 +136,28 @@ $(pageContainer).on('click', '#back-to-list', function () {
     PizzasGetAll();
 });
 
-function openEditModal(pizza = null) {
+function openEditModal(pizza = null) {    
+
     if (pizza) {
         if (pizza.image) {
             prevImage.src = pizza.image;
-            prevImage.style.display = 'block';
-            //prevImage.removeAttribute('hidden')
+            prevImage.style.display = 'block';         
         } else {
-            //prevImage.
             prevImage.style.display = 'none';
         }                
 
         $('#pizza-form')[0].reset();
         $('#pizzaEditModalLabel').text("Редактировать пиццу");
         $('#pizza-id').val(pizza.id);
-        $('#pizza-name').val(pizza.name);            
-        //prevImage.src = pizza.image;
+        $('#pizza-name').val(pizza.name);     
         $('#pizza-ingredients').val(pizza.ingredients);
         $('#pizza-price').val(pizza.price);
         $('#pizza-weight').val(pizza.weight);
-    } else {
+    } else {       
         $('#pizzaEditModalLabel').text("Добавить пиццу");
         $('#pizza-form')[0].reset();
+        prevImage.style.display = 'none';
         $('#pizza-id').val('');
-       // prevImage.src = zaglushka;
     }
 
     pizzaEditModal.show();
@@ -167,7 +165,7 @@ function openEditModal(pizza = null) {
     $("#editImage").toggle(display = true)
 }
 
-function closeEditModal() {
+function closeEditModal() {    
     pizzaEditModal.hide();
 }
 

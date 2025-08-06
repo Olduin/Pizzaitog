@@ -4,11 +4,11 @@ namespace PizzaSales.Domain.Logger
 {
     public class FileLogger : ILogger
     {
-        private string filePath;
+        private string _filePath;
         private static object _lock = new object();
-        public FileLogger(string path)
+        public FileLogger(string filePath)
         {
-            filePath = path;
+            _filePath = filePath;
         }              
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception? exception, Func<TState, Exception?, string> formatter)
@@ -17,9 +17,21 @@ namespace PizzaSales.Domain.Logger
             {
                 lock (_lock)
                 {
-                    File.AppendAllText(filePath, formatter(state, exception) + Environment.NewLine);
+                    string datedFilePath = GetDatedFilePath();
+                    string logRecord = $"{DateTime.Now:HH:mm:ss} [{logLevel}] {formatter(state, exception)}{Environment.NewLine}";
+                    Directory.CreateDirectory(Path.GetDirectoryName(datedFilePath)!);
+                    File.AppendAllText(datedFilePath, logRecord);
                 }
             }
+        }
+
+        private string GetDatedFilePath()
+        {
+            string date = DateTime.Now.ToString("dd-MM-yyyy");
+            string directory = Path.GetDirectoryName(_filePath)!;
+            string fileName = Path.GetFileName(_filePath);
+
+            return Path.Combine(directory, $"{fileName}-{date}.log");
         }
 
         public bool IsEnabled(LogLevel logLevel)
