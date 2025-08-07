@@ -34,19 +34,17 @@ namespace PizzaSales.Domain.Logger
             string directory = Path.GetDirectoryName(_filePath)!;
             string fileName = Path.GetFileName(_filePath);
 
-            string[] files = Directory.GetFiles(directory, $"{fileName}-{date}*.log");          
-            //string[] files = null;
+            // string[] files = Directory.GetFiles(directory, $"{fileName}-{date}*.log");          
+            string[] files = null;
 
-            if (files != null)
+            if (files != null && files.Length != 0 )
             {
-                if (files.Length != 0)
-                {
-                    return files[0];
-                }
-            }            
-            
-            return Path.Combine(directory, $"{fileName}-{date}-{time}.log");
-           
+                 return files[0];
+            }
+            else
+            {
+                return Path.Combine(directory, $"{fileName}-{date}-{time}.log");
+            }
             //return files.Any(file => Path.GetFileName(file).Contains(date) );
         }
 
