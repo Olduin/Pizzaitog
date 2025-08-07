@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
+using System;
 
 namespace PizzaSales.Domain.Logger
 {
@@ -16,7 +18,7 @@ namespace PizzaSales.Domain.Logger
             if (formatter != null)
             {
                 lock (_lock)
-                {
+                {                    
                     string datedFilePath = GetDatedFilePath();
                     string logRecord = $"{DateTime.Now:HH:mm:ss} [{logLevel}] {formatter(state, exception)}{Environment.NewLine}";
                     Directory.CreateDirectory(Path.GetDirectoryName(datedFilePath)!);
@@ -28,10 +30,24 @@ namespace PizzaSales.Domain.Logger
         private string GetDatedFilePath()
         {
             string date = DateTime.Now.ToString("dd-MM-yyyy");
+            string time = DateTime.Now.ToString("HH-mm-ss");
             string directory = Path.GetDirectoryName(_filePath)!;
             string fileName = Path.GetFileName(_filePath);
 
-            return Path.Combine(directory, $"{fileName}-{date}.log");
+            string[] files = Directory.GetFiles(directory, $"{fileName}-{date}*.log");          
+            //string[] files = null;
+
+            if (files != null)
+            {
+                if (files.Length != 0)
+                {
+                    return files[0];
+                }
+            }            
+            
+            return Path.Combine(directory, $"{fileName}-{date}-{time}.log");
+           
+            //return files.Any(file => Path.GetFileName(file).Contains(date) );
         }
 
         public bool IsEnabled(LogLevel logLevel)

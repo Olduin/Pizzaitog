@@ -3,11 +3,7 @@ using Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace PizzaSales.Infrastructure
-{
-    //public interface IPizzaContext
-    //{
-
-    //}
+{ 
     public partial class PizzaContext : DbContext
     {
         public PizzaContext()

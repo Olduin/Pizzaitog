@@ -24,11 +24,7 @@ function generatePizzaCards(pizzas) {
     pageContainer.append(AddCardsHtml);
     const flexContainer = $(".my-flex-container");       
     
-    pizzas.forEach(pizza => {
-        //if (pizza.image == null) {
-        //    pizza.image = zaglushka;
-        //}
-
+    pizzas.forEach(pizza => {   
         const cardHtml = `
                 <div class="flex-card" id="card1" data-id="card-${pizza.id}">
                     <div class="card-img-container">
@@ -57,13 +53,10 @@ function PizzasGetAll() {
         beforeSend: function () {
             openPizzaLoader();
         },
-        success: function (data) {
-
-            //closePizzaLoader();
+        success: function (data) {        
             generatePizzaCards(data);
         },
         error: function () {
-            //closePizzaLoader();
             console.error("Ошибка при получении списка пицц");
         }
     });
@@ -74,9 +67,6 @@ function PizzasGetAll() {
 })();
 
 function generatePizzaDetail(pizza) {
-    //if (pizza.image == null) {
-    //    pizza.image = zaglushka;
-    //}
     const container = $(".Page-container");
     const flexContainer = $(".my-flex-container")
     container.empty();
@@ -97,11 +87,6 @@ function generatePizzaDetail(pizza) {
         `;
 
     container.append(cardHtml);
-
-    //$('#back-to-list').on('click', function () {   
-    //    PizzasGetAll();
-    //    //location.reload();
-    //});
 };
 
 function openDetailModal(pizza) {
@@ -110,21 +95,7 @@ function openDetailModal(pizza) {
     $('#pizza-detail-name').text(pizza.name);   
     $('#pizza-detail-ingredient').text(pizza.ingredients);
     $('#pizza-detail-weight').text(pizza.weight + ' гр.');  
-    $('#pizza-detail-price').text(pizza.price + ' ₽');
-
-    //const container = $(".detail-modal");
-    //container.empty();
-    //const cardHtml = `                           
-    //            <img class="card-img" src="${pizza.image}">
-    //            <h4 class="pizza-title">${pizza.name}</h4>
-    //            <div class="pizza-ingredient"> ${pizza.ingredients} </div>
-    //            <div class="card-footer">
-    //                <div class="card-price">${pizza.price} &#8381;</div>
-    //                <div class="card-weight">${pizza.weight} гр.</div>
-    //            </div>         
-    //    `;
-
-    //container.append(cardHtml);
+    $('#pizza-detail-price').text(pizza.price + ' ₽');   
     pizzaDetailModal.show();
 }
 

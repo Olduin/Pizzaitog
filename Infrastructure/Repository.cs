@@ -53,8 +53,7 @@ namespace Infrastructure
             catch
             {
                 _logger.LogInformation("Ошибка добавления: {Name}, Цена: {Price}", pizza.Name, pizza.Price);
-            }
-            
+            }            
         }
 
         public void PizzaUpdate(PizzaModel pizza)
@@ -78,7 +77,6 @@ namespace Infrastructure
                 _pizzaContext.Pizzas.Remove(pizza);
                 //Save();
             }
-
         }
 
         public void Save()

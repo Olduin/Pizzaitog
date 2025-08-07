@@ -25,9 +25,7 @@ internal class Program
         builder.Services.AddControllersWithViews();
         builder.Services.AddDbContext<PizzaContext>(options => options.UseSqlServer(connetion));
         builder.Services.AddScoped<IRepository<PizzaModel>, Repository>();
-
-        //builder.Logging.AddFile(Path.Combine(Directory.GetCurrentDirectory(), "logger.txt"));        
-        //builder.Logging.AddFile(Path.Combine("C:\\Temp", "logger.txt"));        
+                  
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
